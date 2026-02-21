@@ -1,4 +1,4 @@
-# Historical Debate Simulator
+# The Grand Council: Historical Debate Simulator
 
 Watch history's greatest minds argue. Pick any two (or more) historical and contemporary figures, choose a topic and debate format, and let Claude bring them to life — complete with authentic voices, evolving memory, and genuine intellectual friction.
 
