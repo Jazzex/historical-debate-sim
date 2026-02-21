@@ -1,0 +1,12 @@
+{
+  "name": "historical-debate-sim",
+  "compatibility_date": "2024-12-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "historical-debate-sim",
+      "database_id": "YOUR_D1_DATABASE_ID"
+    }
+  ]
+}

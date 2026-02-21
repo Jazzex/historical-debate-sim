@@ -1,80 +1,193 @@
-# Historical Debate Simulator
+Welcome to your new TanStack Start app! 
 
-A web application that simulates structured debates between historical and contemporary figures, powered by Claude AI. Pit Martin Luther against Richard Dawkins on God's existence, have Socrates question Nietzsche on morality, or let Karl Marx debate Milton Friedman on economics.
+# Getting Started
 
-## What It Does
+To run this application:
 
-- Select two or more historical/contemporary figures as debate participants
-- Choose a debate topic (or let the app suggest one based on the characters)
-- Watch the AI simulate an authentic, in-character debate with each figure arguing from their real documented positions, writing style, and rhetorical approach
-- Optionally join as a participant and argue directly against historical figures
-- Save, replay, and share debates
-
-## Example Debates
-
-| Debater A | Debater B | Topic |
-|---|---|---|
-| Martin Luther | Richard Dawkins | Does God exist? |
-| Socrates | Friedrich Nietzsche | The basis of morality |
-| Karl Marx | Milton Friedman | Free markets vs. central planning |
-| Marie Curie | Nikola Tesla | The future of energy |
-| Abraham Lincoln | Frederick Douglass | Reconstruction and racial equality |
-| Simone de Beauvoir | Confucius | The role of women in society |
-| Charles Darwin | Thomas Aquinas | Evolution and divine creation |
-| Machiavelli | Immanuel Kant | Is deception ever justified? |
-
-## Key Features
-
-- **Per-Character Working Memory** — Each figure maintains their own private mind during the debate. Luther and Dawkins are not just reading the same transcript — they each experience and interpret the debate through their own worldview, tracking their own agenda, emotional state, and what they still need to address. They can be genuinely surprised, pressured, or energized.
-- **Life Knowledge Context** — Every character starts from a rich first-person prompt covering their personal history, intellectual formation, complete worldview, and a knowledge cutoff (historical figures don't know what happened after they died). Luther has no concept of evolution; Dawkins knows Luther's writings as historical documents.
-- **Episodic Memory Compression** — As debates grow long, each character compresses older turns into their own narrative summary written in their internal voice. Their memory of the debate is subjective, not a raw transcript.
-- **Authentic Character Voices** — Each figure speaks using their documented rhetorical style, known arguments, and philosophical positions. Luther is passionate and theological; Dawkins is empirical and pointed.
-- **Multiple Debate Formats** — Oxford-style, Socratic dialogue, Lincoln-Douglas, Town Hall
-- **Real-time Streaming** — Responses stream token by token for a live debate feel
-- **User Participation** — Join the debate yourself and argue against historical figures
-- **Multi-participant Debates** — 3+ debaters in a roundtable or panel format
-- **Topic Suggestions** — The app suggests historically relevant debate topics per character pair
-- **Transcript Export** — Save debates as PDF, Markdown, or share via link
-- **Historical Context Cards** — Sidebar cards showing each figure's era, key works, and real-world positions
-- **Accuracy Indicators** — Highlights when a character's argument is directly sourced from their known writings vs. extrapolated
-
-## Tech Stack
-
-- **Framework**: TanStack Start (Vite + TanStack Router + Server Functions)
-- **UI Components**: shadcn/ui (Radix UI primitives)
-- **AI**: Anthropic Claude API (`claude-sonnet-4-6`)
-- **Streaming**: Server-Sent Events via TanStack Start server functions
-- **Data Fetching**: TanStack Query
-- **Database**: SQLite + Drizzle ORM (dev) / PostgreSQL (prod)
-- **Styling**: Tailwind CSS v4
-- **Language**: TypeScript
-
-## Project Structure
-
-```
-historical-debate-sim/
-├── app/
-│   ├── page.tsx              # Home / character selection
-│   ├── debate/
-│   │   ├── [id]/page.tsx     # Active debate view
-│   │   └── new/page.tsx      # Debate setup
-│   └── api/
-│       ├── debate/route.ts   # Streaming debate endpoint
-│       └── characters/route.ts
-├── lib/
-│   ├── characters/           # Character profile definitions
-│   ├── prompts/              # System prompt builders
-│   └── debate-engine/        # Turn management, format logic
-├── components/
-│   ├── DebateStage/          # Main debate UI
-│   ├── CharacterCard/        # Character selection cards
-│   └── Transcript/           # Debate transcript view
-├── prisma/
-│   └── schema.prisma
-└── data/
-    └── characters/           # JSON profiles for each figure
+```bash
+bun install
+bun --bun run dev
 ```
 
-## Getting Started
+# Building For Production
 
-See [PLAN.md](./PLAN.md) for the full implementation plan and development roadmap.
+To build this application for production:
+
+```bash
+bun --bun run build
+```
+
+## Testing
+
+This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+
+```bash
+bun --bun run test
+```
+
+## Styling
+
+This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+
+### Removing Tailwind CSS
+
+If you prefer not to use Tailwind CSS:
+
+1. Remove the demo pages in `src/routes/demo/`
+2. Replace the Tailwind import in `src/styles.css` with your own styles
+3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
+4. Uninstall the packages: `bun install @tailwindcss/vite tailwindcss -D`
+
+
+
+## Routing
+
+This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
+
+### Adding A Route
+
+To add a new route to your application just add a new file in the `./src/routes` directory.
+
+TanStack will automatically generate the content of the route file for you.
+
+Now that you have two routes you can use a `Link` component to navigate between them.
+
+### Adding Links
+
+To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
+
+```tsx
+import { Link } from "@tanstack/react-router";
+```
+
+Then anywhere in your JSX you can use it like so:
+
+```tsx
+<Link to="/about">About</Link>
+```
+
+This will create a link that will navigate to the `/about` route.
+
+More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
+
+### Using A Layout
+
+In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
+
+Here is an example layout that includes a header:
+
+```tsx
+import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+
+export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { title: 'My App' },
+    ],
+  }),
+  shellComponent: ({ children }) => (
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        <header>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </nav>
+        </header>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  ),
+})
+```
+
+More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
+
+## Server Functions
+
+TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
+
+```tsx
+import { createServerFn } from '@tanstack/react-start'
+
+const getServerTime = createServerFn({
+  method: 'GET',
+}).handler(async () => {
+  return new Date().toISOString()
+})
+
+// Use in a component
+function MyComponent() {
+  const [time, setTime] = useState('')
+  
+  useEffect(() => {
+    getServerTime().then(setTime)
+  }, [])
+  
+  return <div>Server time: {time}</div>
+}
+```
+
+## API Routes
+
+You can create API routes by using the `server` property in your route definitions:
+
+```tsx
+import { createFileRoute } from '@tanstack/react-router'
+import { json } from '@tanstack/react-start'
+
+export const Route = createFileRoute('/api/hello')({
+  server: {
+    handlers: {
+      GET: () => json({ message: 'Hello, World!' }),
+    },
+  },
+})
+```
+
+## Data Fetching
+
+There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
+
+For example:
+
+```tsx
+import { createFileRoute } from '@tanstack/react-router'
+
+export const Route = createFileRoute('/people')({
+  loader: async () => {
+    const response = await fetch('https://swapi.dev/api/people')
+    return response.json()
+  },
+  component: PeopleComponent,
+})
+
+function PeopleComponent() {
+  const data = Route.useLoaderData()
+  return (
+    <ul>
+      {data.results.map((person) => (
+        <li key={person.name}>{person.name}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
+
+# Demo files
+
+Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
+
+# Learn More
+
+You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
+
+For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
