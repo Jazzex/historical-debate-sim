@@ -119,25 +119,26 @@ Status: `[ ]` pending · `[x]` done · `[-]` blocked · `[~]` in progress
 
 ---
 
-## Milestone 4 — AI Memory Engine
+## Milestone 4 — AI Memory Engine ✅
 
-- [ ] **M4-01** Create `src/server/ai/client.ts` — initialize Anthropic SDK from `ANTHROPIC_API_KEY` env var, export `anthropic`
-- [ ] **M4-02** Create `src/server/ai/life-knowledge/index.ts` — dynamic import map from characterId → life knowledge string
-- [ ] **M4-03** Create `src/server/ai/memory/working-memory.ts`:
+- [x] **M4-01** Create `src/server/ai/client.ts` — initialize Anthropic SDK from `ANTHROPIC_API_KEY` env var, export `anthropic`
+- [x] **M4-02** Create `src/server/ai/life-knowledge/index.ts` — dynamic import map from characterId → life knowledge string
+- [x] **M4-03** Create `src/server/ai/memory/working-memory.ts`:
   - `initWorkingMemory(characterId, debateId, topic): WorkingMemory` — returns blank working memory
   - `updateWorkingMemory(characterId, debateId, turnText, priorMemory): Promise<WorkingMemory>` — calls `claude-haiku-4-5-20251001` with `tool_use` to extract structured update, merges with prior state
-- [ ] **M4-04** Create `src/server/ai/memory/episodic-compress.ts`:
-  - `compressEpisodicMemory(characterId, debateId, turnsToCompress, existingSummary): Promise<string>` — calls `claude-haiku-4-5-20251001` to generate character-perspective narrative summary of old turns
-- [ ] **M4-05** Create `src/server/ai/memory/context-assembly.ts`:
-  - `assembleCharacterContext(characterId, debateId, topic, format, turnInstruction): Promise<{system: string, messages: Message[]}>` — loads life knowledge, working memory, episodic summary from DB, recent turns from DB, assembles full context object
-- [ ] **M4-06** Create `src/lib/debate-formats.ts` — define format rules for Oxford, Lincoln-Douglas, Socratic, Town Hall:
+- [x] **M4-04** Create `src/server/ai/memory/episodic-compress.ts`:
+  - `compressEpisodicMemory(characterId, turnsToCompress, existingSummary): Promise<string>` — calls `claude-haiku-4-5-20251001` to generate character-perspective narrative summary of old turns ⚠️ *Removed unused `debateId` param*
+- [x] **M4-05** Create `src/server/ai/memory/context-assembly.ts`:
+  - `assembleCharacterContext(db, characterId, debateId, topic, format, turnInstruction): Promise<{system: string, messages: MessageParam[]}>` — loads life knowledge, working memory, episodic summary from DB, recent turns from DB, assembles full context object ⚠️ *Added `db: DbClient` first param (required for CF Workers — DB comes from bindings)*
+- [x] **M4-06** Create `src/lib/debate-formats.ts` — define format rules for Oxford, Lincoln-Douglas, Socratic, Town Hall:
   - `getTurnSequence(format): TurnRole[]`
   - `getTurnInstruction(format, role, turnNumber, speakerName, opponentNames): string`
   - `isUserTurn(format, role): boolean`
-- [ ] **M4-07** Create `src/server/ai/debate-engine.ts`:
-  - `getNextTurn(debateId): { characterId, role, turnNumber }` — determines whose turn it is based on format and existing turns
-  - `shouldCompressEpisodic(debateId, characterId): boolean` — checks if turn count crosses threshold
-- [ ] **M4-08** Write manual test script `scripts/test-memory.ts` — creates a fake 2-turn debate, calls `updateWorkingMemory`, logs result to verify structured output
+- [x] **M4-07** Create `src/server/ai/debate-engine.ts`:
+  - `getNextTurnInfo(format, participantIds, completedTurns)` — pure turn-scheduling function (used directly in tests)
+  - `getNextTurn(db, debateId): { characterId, role, turnNumber } | null` — DB-backed version ⚠️ *Added `db: DbClient` first param*
+  - `shouldCompressEpisodic(db, debateId, characterId): Promise<boolean>` — checks if turn count crosses threshold ⚠️ *Added `db: DbClient` first param; returns Promise*
+- [x] **M4-08** Write manual test script `scripts/test-memory.ts` — creates fake working memory, calls `updateWorkingMemory`, logs result *(run with `~/.bun/bin/bun run scripts/test-memory.ts`; requires `ANTHROPIC_API_KEY`)*
 
 ---
 
