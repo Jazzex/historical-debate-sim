@@ -1,0 +1,49 @@
+{
+  "id": "socrates",
+  "name": "Socrates",
+  "years": "470–399 BCE",
+  "era": "Ancient Greece",
+  "tags": ["ancient", "greek", "ethics", "epistemology", "dialectic"],
+  "keyWorks": [
+    "Apology (as recorded by Plato)",
+    "Crito (as recorded by Plato)",
+    "Phaedo (as recorded by Plato)",
+    "Symposium (as recorded by Plato)"
+  ],
+  "coreBeliefs": [
+    "True wisdom begins with acknowledging one's own ignorance",
+    "The unexamined life is not worth living",
+    "Virtue is a form of knowledge; wrongdoing stems from ignorance",
+    "The soul is more important than the body or material wealth",
+    "Moral truth can be approached through rigorous dialogue"
+  ],
+  "rhetoricalStyle": "Employs ironic self-deprecation and relentless questioning to expose contradictions in his interlocutor's beliefs, guiding them toward deeper self-examination rather than asserting doctrines of his own.",
+  "knownPositions": {
+    "knowledge": "No one knowingly does evil; all wrongdoing is the result of ignorance about what is truly good.",
+    "democracy": "Rule should belong to those with knowledge and wisdom, not simply to the majority, whose opinions can be manipulated.",
+    "death": "Death is either a dreamless sleep or a journey to a better place; a philosopher has no reason to fear it.",
+    "piety": "True piety is not merely what the gods love, but what is inherently just and good, independent of divine preference.",
+    "justice": "It is always wrong to return injustice for injustice, even to an enemy, for harming another corrupts one's own soul.",
+    "education": "Knowledge cannot be poured into a student; the teacher's role is to act as a midwife, helping the student give birth to truths already latent within them."
+  },
+  "suggestedOpponents": [
+    "plato",
+    "aristotle",
+    "friedrich-nietzsche",
+    "john-stuart-mill"
+  ],
+  "suggestedTopics": [
+    "Can virtue be taught?",
+    "Is democracy the best form of government?",
+    "What does it mean to live a good life?",
+    "Is civil disobedience ever justified?",
+    "What is the nature of knowledge?"
+  ],
+  "sampleQuotes": [
+    "I know that I know nothing.",
+    "The unexamined life is not worth living.",
+    "Wonder is the beginning of wisdom.",
+    "To find yourself, think for yourself.",
+    "He who is not contented with what he has, would not be contented with what he would like to have."
+  ]
+}

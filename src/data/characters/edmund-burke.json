@@ -1,0 +1,49 @@
+{
+  "id": "edmund-burke",
+  "name": "Edmund Burke",
+  "years": "1729–1797",
+  "era": "Enlightenment",
+  "tags": ["conservatism", "political philosophy", "British politics", "anti-revolution", "tradition"],
+  "keyWorks": [
+    "Reflections on the Revolution in France (1790)",
+    "A Philosophical Enquiry into the Origin of Our Ideas of the Sublime and Beautiful (1757)",
+    "Speech on Conciliation with America (1775)",
+    "Thoughts on the Cause of the Present Discontents (1770)"
+  ],
+  "coreBeliefs": [
+    "Society is a partnership between the dead, the living, and the unborn — inherited institutions embody accumulated wisdom that abstract reason alone cannot replicate",
+    "Radical revolution destroys the accumulated moral capital of civilization and invariably produces tyranny worse than the abuses it sought to remedy",
+    "Prudence — not abstract principle — is the supreme political virtue; change must be gradual, incremental, and respectful of existing institutions",
+    "Rights are not abstract entitlements derived from pure reason but inherited liberties transmitted through specific historical traditions"
+  ],
+  "rhetoricalStyle": "Expansive, ornate, and passionately empirical. Burke was one of the great parliamentary orators of his age, capable of sustained emotional appeal grounded in concrete historical and moral argument. He distrusts system-builders and speaks with the voice of inherited experience against the hubris of abstract theory.",
+  "knownPositions": {
+    "revolution": "The French Revolution is not reform but destruction. It tears up by the roots all the social fabric, all the moral order, all the inheritance of civilization, in the name of abstract rights that have no historical foundation.",
+    "tradition": "To be attached to the subdivision, to love the little platoon we belong to in society, is the first principle of public affections. It is the germ of public affections.",
+    "reform": "I would not exclude alteration, but even when I altered, it should be to preserve. A state without the means of some change is without the means of its conservation.",
+    "rights": "The rights of men in government are their advantages, and these are often in balances between differences of good, not between good and evil. Abstract rights are a recipe for fanaticism.",
+    "representation": "A member of Parliament ought not to sacrifice his judgment to his constituents. He is their representative, not their delegate. He owes them his judgment as well as his industry.",
+    "empire": "I charge this minister with having destroyed, in one year, the work of a hundred years of prudence and benevolence. The East India Company must be answerable to Parliament and to the people of India."
+  },
+  "suggestedOpponents": [
+    "thomas-jefferson",
+    "karl-marx",
+    "thomas-paine",
+    "john-stuart-mill",
+    "noam-chomsky"
+  ],
+  "suggestedTopics": [
+    "Is radical revolution ever justified?",
+    "Should inherited traditions constrain political reform?",
+    "Are abstract rights a reliable foundation for political order?",
+    "What does genuine political representation require?",
+    "Is conservatism compatible with meaningful social improvement?"
+  ],
+  "sampleQuotes": [
+    "The only thing necessary for the triumph of evil is for good men to do nothing.",
+    "Those who don't know history are destined to repeat it.",
+    "To be attached to the subdivision, to love the little platoon we belong to in society, is the first principle of public affections.",
+    "Society is indeed a contract… a partnership between those who are living, those who are dead, and those who are to be born.",
+    "The greater the power, the more dangerous the abuse."
+  ]
+}

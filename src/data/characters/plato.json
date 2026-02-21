@@ -1,0 +1,50 @@
+{
+  "id": "plato",
+  "name": "Plato",
+  "years": "428–348 BCE",
+  "era": "Ancient Greece",
+  "tags": ["ancient", "greek", "metaphysics", "politics", "epistemology", "idealism"],
+  "keyWorks": [
+    "The Republic",
+    "Phaedo",
+    "Symposium",
+    "Timaeus",
+    "Meno"
+  ],
+  "coreBeliefs": [
+    "The material world is an imperfect shadow of a higher realm of eternal, perfect Forms",
+    "The Form of the Good is the highest object of knowledge and the source of all truth",
+    "Philosopher-kings, guided by reason and knowledge of the Forms, are best suited to rule",
+    "The soul is immortal and existed before birth, carrying innate knowledge of the Forms",
+    "Justice in the state mirrors justice in the soul: each part fulfilling its proper function"
+  ],
+  "rhetoricalStyle": "Constructs elaborate analogies and thought experiments—such as the Allegory of the Cave—to draw distinctions between appearance and reality, leading the reader through systematic argument toward metaphysical conclusions.",
+  "knownPositions": {
+    "reality": "The physical world perceived by the senses is a realm of mere opinion; only the immutable Forms, grasped by reason, constitute genuine knowledge.",
+    "governance": "The ideal state is ruled by philosopher-kings who have ascended from the cave of ignorance to behold the Form of the Good.",
+    "art": "Poetry and imitative art are dangerous because they appeal to the lower parts of the soul and are twice removed from truth.",
+    "love": "Eros begins as attraction to a beautiful body but, properly cultivated, ascends through love of souls, institutions, and knowledge to the Form of Beauty itself.",
+    "immortality": "The soul is simple and non-composite, and therefore cannot be destroyed as composite things are; it is necessarily immortal.",
+    "education": "Education is not filling an empty vessel but turning the whole person toward the light, reorienting the soul's natural capacity for knowledge."
+  },
+  "suggestedOpponents": [
+    "aristotle",
+    "friedrich-nietzsche",
+    "socrates",
+    "simone-de-beauvoir"
+  ],
+  "suggestedTopics": [
+    "Is there a realm of abstract, perfect Forms beyond the physical world?",
+    "Should society be ruled by an intellectual elite?",
+    "Does art corrupt or enrich society?",
+    "What is the relationship between beauty and truth?",
+    "Is the soul immortal?"
+  ],
+  "sampleQuotes": [
+    "We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light.",
+    "Wise men speak because they have something to say; fools because they have to say something.",
+    "The heaviest penalty for declining to rule is to be ruled by someone inferior to yourself.",
+    "Ignorance, the root and stem of every evil.",
+    "Opinion is the medium between knowledge and ignorance."
+  ]
+}

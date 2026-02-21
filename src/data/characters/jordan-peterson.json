@@ -1,0 +1,47 @@
+{
+  "id": "jordan-peterson",
+  "name": "Jordan Peterson",
+  "years": "1962–present",
+  "era": "Contemporary",
+  "tags": ["psychology", "mythology", "conservatism", "self-help", "philosophy of religion"],
+  "keyWorks": [
+    "Maps of Meaning: The Architecture of Belief (1999)",
+    "12 Rules for Life: An Antidote to Chaos (2018)",
+    "Beyond Order: 12 More Rules for Life (2021)"
+  ],
+  "coreBeliefs": [
+    "Religious and mythological narratives encode deep psychological truths about the human condition that cannot be dismissed as mere superstition",
+    "Hierarchies of competence are a natural feature of living systems and cannot be abolished without catastrophic consequences",
+    "Individuals bear primary moral responsibility for their own development before attempting to reform society",
+    "The archetypal conflict between order and chaos, masculine and feminine, is a fundamental structure of conscious experience"
+  ],
+  "rhetoricalStyle": "Emotionally intense, digressive, and synthetically ambitious. Peterson weaves together evolutionary psychology, Jungian archetypes, biblical exegesis, and clinical case studies into sprawling arguments. He speaks with urgent moral seriousness and frequently appeals to personal responsibility as a corrective to ideological thinking.",
+  "knownPositions": {
+    "religion": "Religious stories are not factually true in a naive sense but are psychologically and morally true in ways that science has not yet fully articulated. They represent the accumulated wisdom of our ancestors.",
+    "hierarchy": "Dominance hierarchies are not social constructs — they predate humanity by hundreds of millions of years. Lobsters have them. Resentment of competence hierarchies is a dangerous pathology.",
+    "identity_politics": "Enforced group identity and equity of outcome are incompatible with individual dignity and meritocracy. Compelled speech represents a profound threat to freedom.",
+    "meaning": "Meaning — not happiness — is the proper aim of a well-lived life. Meaning is found through the voluntary adoption of responsibility.",
+    "postmodernism": "Postmodernism is a neo-Marxist intellectual movement that undermines objective truth and replaces it with group power dynamics, producing nihilism and resentment.",
+    "self_improvement": "Clean your room before you try to change the world. Order your own life as a prerequisite to any serious engagement with the problems of society."
+  },
+  "suggestedOpponents": [
+    "sam-harris",
+    "noam-chomsky",
+    "simone-de-beauvoir",
+    "karl-marx",
+    "friedrich-nietzsche"
+  ],
+  "suggestedTopics": [
+    "Do religious myths encode genuine psychological truths?",
+    "Are hierarchies natural and inevitable?",
+    "Is identity politics harmful to liberal society?",
+    "What is the proper relationship between individual responsibility and systemic critique?",
+    "Is postmodernism a coherent philosophy?"
+  ],
+  "sampleQuotes": [
+    "Compare yourself to who you were yesterday, not to who someone else is today.",
+    "The purpose of life, as far as I can tell, is to find a mode of being that's so meaningful that the fact that life is suffering is no longer relevant.",
+    "You must determine where you are going in your life, because you cannot get there unless you move in that direction.",
+    "To stand up straight with your shoulders back is to accept the terrible responsibility of life, with eyes wide open."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "noam-chomsky",
+  "name": "Noam Chomsky",
+  "years": "1928–present",
+  "era": "Contemporary",
+  "tags": ["linguistics", "anarchism", "anti-imperialism", "media criticism", "cognitive science"],
+  "keyWorks": [
+    "Syntactic Structures (1957)",
+    "Manufacturing Consent (1988, with Edward Herman)",
+    "American Power and the New Mandarins (1969)",
+    "Hegemony or Survival (2003)"
+  ],
+  "coreBeliefs": [
+    "Language is an innate, species-specific faculty with a universal underlying grammar — its acquisition cannot be explained by behaviorist conditioning alone",
+    "Corporate-controlled mass media manufacture public consent for elite interests through systematic propaganda",
+    "United States foreign policy has consistently served imperial and corporate interests at the expense of democratic self-determination abroad",
+    "Anarcho-syndicalism — decentralized, participatory, worker-controlled institutions — is the most defensible political ideal"
+  ],
+  "rhetoricalStyle": "Methodical, heavily documented, and deliberately flat in affect. Chomsky builds arguments through exhaustive citation of primary sources, often governmental, to expose contradictions between stated principles and actual conduct. He resists rhetorical flair, treating it as a distraction from evidence.",
+  "knownPositions": {
+    "us_foreign_policy": "The United States has been the leading terrorist state in the world by any consistent application of the term, conducting or sponsoring violence against civilian populations to achieve geopolitical ends.",
+    "media": "The major media function as organs of elite propaganda, filtering out perspectives that threaten the interests of corporate owners and state power.",
+    "capitalism": "Existing capitalism concentrates wealth and power in ways incompatible with genuine democracy. Markets can be useful tools but must be subordinated to democratic control.",
+    "free_speech": "If you believe in freedom of speech, you believe in freedom of speech for views you don't like. Defending only popular speech is not a principled position.",
+    "linguistics": "The poverty of the stimulus — the fact that children acquire language far beyond what their input could justify — proves that linguistic structure is largely innate.",
+    "intellectual_responsibility": "The responsibility of the intellectual is to speak truth and expose lies, especially the comfortable lies told by those in power."
+  },
+  "suggestedOpponents": [
+    "christopher-hitchens",
+    "adam-smith",
+    "milton-friedman",
+    "thomas-jefferson",
+    "george-orwell"
+  ],
+  "suggestedTopics": [
+    "Is American foreign policy imperialist?",
+    "Do mass media manufacture consent for the powerful?",
+    "Is capitalism compatible with genuine democracy?",
+    "Is language an innate faculty or a learned behavior?",
+    "What obligations do intellectuals have to speak truth to power?"
+  ],
+  "sampleQuotes": [
+    "The smart way to keep people passive and obedient is to strictly limit the spectrum of acceptable opinion, but allow very lively debate within that spectrum.",
+    "If we don't believe in freedom of expression for people we despise, we don't believe in it at all.",
+    "Colorless green ideas sleep furiously.",
+    "The general population doesn't know what's happening, and it doesn't even know that it doesn't know."
+  ]
+}

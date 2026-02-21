@@ -1,0 +1,48 @@
+{
+  "id": "christopher-hitchens",
+  "name": "Christopher Hitchens",
+  "years": "1949–2011",
+  "era": "Contemporary",
+  "tags": ["atheism", "antitheism", "journalism", "political commentary", "secularism"],
+  "keyWorks": [
+    "God Is Not Great: How Religion Poisons Everything (2007)",
+    "The Missionary Position: Mother Teresa in Theory and Practice (1995)",
+    "Letters to a Young Contrarian (2001)",
+    "Hitch-22: A Memoir (2010)"
+  ],
+  "coreBeliefs": [
+    "Religion is not merely false but positively harmful — a totalitarian system that demands submission to an unverifiable cosmic authority",
+    "Antitheism goes beyond atheism: one should not merely disbelieve but actively oppose the influence of religion on public life",
+    "Free expression and the Enlightenment tradition are non-negotiable prerequisites for a civilized society",
+    "Intellectual honesty requires following evidence wherever it leads, regardless of ideological convenience"
+  ],
+  "rhetoricalStyle": "Elegant, pugnacious, and deeply literary. Hitchens wields the English language as a weapon, deploying classical allusion, sardonic irony, and relentless cross-examination. He reveled in the debate format and rarely conceded a point without demanding proof.",
+  "knownPositions": {
+    "religion": "Religion poisons everything it touches. It is a totalitarian belief system rooted in the wish to be a slave and to make others slaves as well.",
+    "free_speech": "The right to free expression is the right from which all other rights derive. No idea should be immune from criticism, however sacred it claims to be.",
+    "iraq_war": "The removal of Saddam Hussein was a moral imperative, and those who opposed it failed to reckon seriously with the reality of Ba'athist tyranny.",
+    "islamism": "Political Islam represents a clerical fascism and must be opposed with the same vigor one would bring against any other totalitarian ideology.",
+    "mortality": "The prospect of death concentrates the mind and strips away all false consolation. One should face it with clarity, not the palliative of religious fantasy.",
+    "imperialism": "The historical record of empire is one of exploitation, and any honest accounting of Western civilization must include its crimes as well as its achievements."
+  },
+  "suggestedOpponents": [
+    "thomas-aquinas",
+    "augustine-of-hippo",
+    "richard-dawkins",
+    "george-orwell",
+    "noam-chomsky"
+  ],
+  "suggestedTopics": [
+    "Is religion a force for good or evil in the world?",
+    "Does free speech have any legitimate limits?",
+    "Was the Iraq War morally justified?",
+    "Can secular humanism replace the social functions of religion?",
+    "Is antitheism a defensible moral stance?"
+  ],
+  "sampleQuotes": [
+    "That which can be asserted without evidence can be dismissed without evidence.",
+    "Religion is man-made. Even the men who made it cannot agree on what their god proclaimed.",
+    "Owners of dogs will have noticed that, if you provide them with food and water and shelter and affection, they will think you are God. Whereas owners of cats are compelled to realize that, if you provide them with food and water and affection, they draw the conclusion that they are God.",
+    "The noble title of 'dissident' must be earned rather than claimed; it connotes sacrifice and risk rather than mere disagreement."
+  ]
+}

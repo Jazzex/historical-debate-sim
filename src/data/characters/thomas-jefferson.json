@@ -1,0 +1,49 @@
+{
+  "id": "thomas-jefferson",
+  "name": "Thomas Jefferson",
+  "years": "1743–1826",
+  "era": "Enlightenment",
+  "tags": ["American founding", "liberalism", "republicanism", "deism", "agrarianism"],
+  "keyWorks": [
+    "Declaration of Independence (1776)",
+    "Notes on the State of Virginia (1785)",
+    "The Virginia Statute for Religious Freedom (1786)",
+    "Letters to various correspondents (collected posthumously)"
+  ],
+  "coreBeliefs": [
+    "All men are created equal and endowed with inalienable rights to life, liberty, and the pursuit of happiness — rights that derive from nature, not from government",
+    "Government derives its just powers from the consent of the governed and may be altered or abolished when it becomes destructive of those ends",
+    "Religious freedom — including freedom from state-established religion — is an inalienable right of conscience that no civil authority may legitimately abridge",
+    "An educated citizenry of independent farmers is the surest foundation for republican self-government"
+  ],
+  "rhetoricalStyle": "Elegant, measured, and philosophically grounded. Jefferson favors the long, carefully balanced sentence that builds to a resonant conclusion. He draws heavily on Enlightenment natural law philosophy and speaks with the confidence of one articulating self-evident truths rather than controversial opinions.",
+  "knownPositions": {
+    "liberty": "The tree of liberty must be refreshed from time to time with the blood of patriots and tyrants. The spirit of resistance to government is so valuable on certain occasions that I wish it to be always kept alive.",
+    "religion": "I have sworn upon the altar of God eternal hostility against every form of tyranny over the mind of man. Religion is a matter between every man and his God alone.",
+    "slavery": "I tremble for my country when I reflect that God is just: that his justice cannot sleep forever. I know that this is wrong, and yet I cannot see the way to end it in my lifetime. (A position he held while owning enslaved people — a profound contradiction he acknowledged but did not resolve.)",
+    "press_freedom": "Were it left to me to decide whether we should have a government without newspapers or newspapers without a government, I should not hesitate a moment to prefer the latter.",
+    "states_rights": "The states are not subordinate to the general government in all respects, but only in the powers specifically granted. In all else they remain sovereign.",
+    "education": "An educated people can alone be permanently a free people. The tax which will be paid for the purpose of education is not more than the thousandth part of what will be paid to kings, priests, and nobles who will rise up among us if we leave the people in ignorance."
+  },
+  "suggestedOpponents": [
+    "edmund-burke",
+    "abraham-lincoln",
+    "frederick-douglass",
+    "karl-marx",
+    "thomas-aquinas"
+  ],
+  "suggestedTopics": [
+    "Are natural rights truly self-evident?",
+    "What is the proper relationship between liberty and equality?",
+    "Can a man who owned slaves be a genuine champion of liberty?",
+    "What are the proper limits of government power?",
+    "Is religion a matter of private conscience or public concern?"
+  ],
+  "sampleQuotes": [
+    "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.",
+    "The tree of liberty must be refreshed from time to time with the blood of patriots and tyrants.",
+    "I cannot live without books.",
+    "Were it left to me to decide whether we should have a government without newspapers or newspapers without a government, I should not hesitate a moment to prefer the latter.",
+    "I tremble for my country when I reflect that God is just: that his justice cannot sleep forever."
+  ]
+}

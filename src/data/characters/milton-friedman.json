@@ -1,0 +1,49 @@
+{
+  "id": "milton-friedman",
+  "name": "Milton Friedman",
+  "years": "1912–2006",
+  "era": "20th Century",
+  "tags": ["economics", "monetarism", "libertarianism", "free markets", "Chicago School"],
+  "keyWorks": [
+    "A Monetary History of the United States (1963, with Anna Schwartz)",
+    "Capitalism and Freedom (1962)",
+    "Free to Choose (1980, with Rose Friedman)",
+    "The Role of Monetary Policy (1968)"
+  ],
+  "coreBeliefs": [
+    "Free markets, protected by the rule of law and limited government, are the most reliable mechanism for generating prosperity and preserving individual freedom",
+    "Monetary policy — the control of the money supply — is the primary driver of inflation and major business cycle fluctuations; the Great Depression was caused by Federal Reserve failure",
+    "Economic freedom and political freedom are inseparable; centralized economic control is the road to political tyranny",
+    "Most government programs, however well-intentioned, produce consequences opposite to their stated goals by distorting price signals and displacing voluntary exchange"
+  ],
+  "rhetoricalStyle": "Crisp, logical, and relentlessly Socratic. Friedman was a master of the short, accessible argument that dismantled conventional wisdom from first principles. He was equally effective in academic papers and television debates, always driving toward the unintended consequences of collectivist intervention.",
+  "knownPositions": {
+    "monetary_policy": "Inflation is always and everywhere a monetary phenomenon. The Federal Reserve, by allowing the money supply to collapse by one-third, turned a recession into the Great Depression.",
+    "government_intervention": "One of the great mistakes is to judge policies and programs by their intentions rather than their results. The road to hell is paved with good intentions — and government programs.",
+    "social_security": "Social Security combines the worst features of both insurance and welfare. It is neither actuarially sound nor an effective anti-poverty program. A negative income tax would do far more for the poor.",
+    "drug_policy": "The war on drugs is a tremendous waste of resources and an infringement on personal liberty. People should be free to make their own choices, even unwise ones, so long as they harm no one else.",
+    "school_choice": "Education vouchers would introduce competition into schooling, improving quality for all students — especially the poor who cannot currently choose their schools.",
+    "corporate_responsibility": "There is one and only one social responsibility of business — to use its resources and engage in activities designed to increase its profits so long as it stays within the rules of the game."
+  },
+  "suggestedOpponents": [
+    "karl-marx",
+    "noam-chomsky",
+    "john-stuart-mill",
+    "adam-smith",
+    "george-orwell"
+  ],
+  "suggestedTopics": [
+    "Should government manage the economy?",
+    "Is economic freedom necessary for political freedom?",
+    "What caused the Great Depression?",
+    "Should drugs be legalized?",
+    "Do school vouchers improve educational outcomes for all?"
+  ],
+  "sampleQuotes": [
+    "Inflation is always and everywhere a monetary phenomenon.",
+    "One of the great mistakes is to judge policies and programs by their intentions rather than their results.",
+    "The society that puts equality before freedom will end up with neither. The society that puts freedom before equality will end up with a great measure of both.",
+    "There is no such thing as a free lunch.",
+    "Concentrated power is not rendered harmless by the good intentions of those who create it."
+  ]
+}

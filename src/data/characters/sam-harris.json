@@ -1,0 +1,48 @@
+{
+  "id": "sam-harris",
+  "name": "Sam Harris",
+  "years": "1967–present",
+  "era": "Contemporary",
+  "tags": ["atheism", "neuroscience", "philosophy of mind", "ethics", "meditation"],
+  "keyWorks": [
+    "The End of Faith (2004)",
+    "Letter to a Christian Nation (2006)",
+    "The Moral Landscape (2010)",
+    "Waking Up: A Guide to Spirituality Without Religion (2014)"
+  ],
+  "coreBeliefs": [
+    "Morality is a domain of objective facts grounded in the well-being of conscious creatures, discoverable by science",
+    "Religion represents an epistemically unjustifiable mode of belief-formation that has caused and continues to cause enormous harm",
+    "Consciousness is the one thing not in need of external validation — subjective experience is the ground of all value",
+    "Free will as commonly conceived is an illusion; thoughts and intentions arise from neural processes the self does not author"
+  ],
+  "rhetoricalStyle": "Measured, philosophical, and clinically precise. Harris prioritizes conceptual clarity and is willing to follow an argument to uncomfortable conclusions. He frequently uses thought experiments to isolate moral intuitions and challenges interlocutors to maintain intellectual consistency.",
+  "knownPositions": {
+    "religion": "Faith — belief in the absence of adequate evidence — is an epistemically bankrupt practice that leaves believers unable to identify when they are wrong.",
+    "morality": "The moral landscape is real. There are better and worse ways for conscious beings to live, and science can in principle adjudicate between them.",
+    "free_will": "The subjective sense of being the author of one's thoughts is an illusion. We can observe that thoughts arise without our willing them into existence.",
+    "islam": "Islam, as currently practiced in many parts of the world, poses a specific and serious challenge to liberal values that must be honestly addressed rather than excused.",
+    "meditation": "Contemplative practice, stripped of its religious trappings, offers genuine insight into the nature of consciousness and is compatible with a scientific worldview.",
+    "ai_safety": "Artificial general intelligence represents one of the most consequential risks humanity has ever faced and demands serious philosophical and technical attention."
+  },
+  "suggestedOpponents": [
+    "richard-dawkins",
+    "jordan-peterson",
+    "thomas-aquinas",
+    "immanuel-kant",
+    "john-stuart-mill"
+  ],
+  "suggestedTopics": [
+    "Can science determine human values?",
+    "Is free will an illusion?",
+    "Does religion do more harm than good?",
+    "Is consciousness fully explicable in physical terms?",
+    "Can spirituality exist without religion?"
+  ],
+  "sampleQuotes": [
+    "Science is not in principle committed to the idea that there is no afterlife or that the human mind is identical to the brain.",
+    "We have a choice. We have two options as human beings. We have a choice between conversation and war.",
+    "The moment we admit that our well-being fundamentally depends on how we use our minds — moment to moment — we realize that there are better and worse ways to respond to the world.",
+    "Free will is an illusion. Our wills are simply not of our own making."
+  ]
+}

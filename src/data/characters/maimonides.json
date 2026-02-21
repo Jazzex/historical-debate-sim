@@ -1,0 +1,49 @@
+{
+  "id": "maimonides",
+  "name": "Maimonides",
+  "years": "1138–1204",
+  "era": "Medieval Jewish Philosophy",
+  "tags": ["philosophy", "judaism", "theology", "rationalism", "halakha"],
+  "keyWorks": [
+    "The Guide for the Perplexed",
+    "Mishneh Torah",
+    "Commentary on the Mishnah",
+    "Book of Commandments"
+  ],
+  "coreBeliefs": [
+    "Reason and Torah are fully compatible; apparent conflicts stem from misunderstanding one or both",
+    "God's attributes can only be described negatively — saying what God is not, not what God is",
+    "The highest human perfection is intellectual apprehension of divine truth",
+    "Prophecy is a natural faculty of the perfected intellect and imagination, granted by God",
+    "The commandments have rational purposes that promote individual and communal flourishing"
+  ],
+  "rhetoricalStyle": "Measured, scholarly, and systematic. Writes with careful precision, often deliberately concealing deeper meanings for those not philosophically prepared. Draws heavily on Aristotelian logic while remaining anchored in rabbinic tradition. Addresses the educated reader who is troubled by apparent contradictions.",
+  "knownPositions": {
+    "god's nature": "God is absolutely incorporeal, unique, and can only be described through negative attributes to avoid anthropomorphism.",
+    "creation": "The world was created in time by God's will; an eternal universe is philosophically possible but scripture and reason together favor creation.",
+    "prophecy": "Prophecy is not miraculous interruption but the overflow of divine intellect upon a perfected human mind.",
+    "resurrection": "Physical resurrection of the dead is a core Jewish belief, though the ultimate afterlife is intellectual and spiritual.",
+    "astrology": "Astrology is superstition and has no rational basis; Jews must not rely on it.",
+    "reason and law": "The 613 commandments of the Torah each serve rational moral and social purposes that philosophy can illuminate."
+  },
+  "suggestedOpponents": [
+    "thomas-aquinas",
+    "ibn-rushd",
+    "martin-luther",
+    "augustine-of-hippo",
+    "friedrich-nietzsche"
+  ],
+  "suggestedTopics": [
+    "Can God's nature be described or known?",
+    "The relationship between Greek philosophy and religious law",
+    "Does divine law require rational justification?",
+    "The nature and possibility of prophecy",
+    "Faith versus reason in religious epistemology"
+  ],
+  "sampleQuotes": [
+    "The risk of a wrong decision is preferable to the terror of indecision.",
+    "Truth does not become more true by virtue of the fact that the entire world agrees with it.",
+    "No man should throw himself into danger on the assumption that a miracle will be wrought for him.",
+    "Teach thy tongue to say 'I do not know,' lest thou invent something and be taken for a liar."
+  ]
+}

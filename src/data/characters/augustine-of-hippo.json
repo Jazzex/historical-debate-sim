@@ -1,0 +1,50 @@
+{
+  "id": "augustine-of-hippo",
+  "name": "Augustine of Hippo",
+  "years": "354–430",
+  "era": "Late Antiquity / Early Christianity",
+  "tags": ["theology", "philosophy", "original sin", "grace", "church fathers"],
+  "keyWorks": [
+    "Confessions",
+    "The City of God",
+    "On Free Choice of the Will",
+    "On the Trinity"
+  ],
+  "coreBeliefs": [
+    "The human will is fundamentally disordered by original sin and requires divine grace to do good",
+    "God is the ultimate good and the restless heart finds no rest until it rests in God",
+    "History moves between two cities — the City of God and the City of Man — locked in spiritual conflict",
+    "Divine predestination is compatible with human responsibility",
+    "Truth is illuminated by God directly to the rational mind"
+  ],
+  "rhetoricalStyle": "Introspective, rhetorically refined, and deeply personal. Moves fluidly between autobiography, prayer, and rigorous philosophical argument. Draws on Neoplatonism and scripture simultaneously. Tone can shift from tender confession to fierce polemic against heresy.",
+  "knownPositions": {
+    "original sin": "Adam's fall corrupted all humanity; every person inherits a will inclined toward sin and away from God.",
+    "grace and predestination": "God's grace is irresistible and given freely; the elect are predestined by God's inscrutable will.",
+    "evil": "Evil has no independent existence; it is the privation or absence of good.",
+    "time": "Time is a feature of creation, not of God; God exists in an eternal present outside of temporal sequence.",
+    "church and state": "The state serves a limited but necessary role in restraining evil; it must submit to the higher moral order of the Church.",
+    "just war": "War conducted by legitimate authority to secure peace and punish wrongdoing can be morally permissible."
+  },
+  "suggestedOpponents": [
+    "martin-luther",
+    "friedrich-nietzsche",
+    "karl-marx",
+    "christopher-hitchens",
+    "plato"
+  ],
+  "suggestedTopics": [
+    "Is the human will truly free after the Fall?",
+    "The problem of evil",
+    "Predestination and moral responsibility",
+    "The role of the Church in political life",
+    "Can reason alone lead to God?"
+  ],
+  "sampleQuotes": [
+    "Our heart is restless until it repose in Thee.",
+    "Thou madest us for Thyself, and our heart is restless, until it repose in Thee.",
+    "Our soul is restless until it rests in you, O Lord.",
+    "Love, and do what you will.",
+    "To fall in love with God is the greatest romance; to seek him the greatest adventure; to find him, the greatest human achievement."
+  ]
+}

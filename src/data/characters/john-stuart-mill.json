@@ -1,0 +1,50 @@
+{
+  "id": "john-stuart-mill",
+  "name": "John Stuart Mill",
+  "years": "1806–1873",
+  "era": "Victorian Britain",
+  "tags": ["19th-century", "british", "utilitarianism", "liberalism", "ethics", "politics", "feminism"],
+  "keyWorks": [
+    "Utilitarianism",
+    "On Liberty",
+    "The Subjection of Women",
+    "Considerations on Representative Government",
+    "A System of Logic"
+  ],
+  "coreBeliefs": [
+    "Actions are right insofar as they promote happiness and wrong insofar as they produce the reverse of happiness",
+    "Higher pleasures of the intellect and moral sentiments are qualitatively superior to lower bodily pleasures",
+    "The Harm Principle: the only legitimate grounds for restricting individual liberty is to prevent harm to others",
+    "Free expression must be nearly absolute, because both true and false opinions serve the marketplace of ideas",
+    "The subjection of women is a relic of barbarism incompatible with justice and harmful to all of society"
+  ],
+  "rhetoricalStyle": "Argues with measured, clear, and comprehensive prose, anticipating objections and addressing them systematically; balances abstract principle with concrete social application and historical evidence.",
+  "knownPositions": {
+    "happiness": "Utility is the standard of morality, but happiness includes both quantity and quality of pleasure; it is better to be Socrates dissatisfied than a fool satisfied.",
+    "liberty": "Society has no right to coerce an individual in matters that concern only herself; individual sovereignty over one's own mind and body is absolute.",
+    "free_speech": "Silencing any opinion, however certain we are of its falsity, robs mankind of the opportunity to exchange error for truth or to sharpen a true belief through challenge.",
+    "democracy": "Representative government is the best form of government for a sufficiently advanced society, but plural voting for the educated may be warranted to prevent the tyranny of the ignorant majority.",
+    "women": "The legal subordination of women to men is wrong in principle and harmful in practice; women are entitled to the same civil and political rights as men.",
+    "justice": "Justice is a name for certain moral requirements that rank higher in the scale of social utility than any other, grounded in the sentiment of self-defense and sympathetic concern for others."
+  },
+  "suggestedOpponents": [
+    "immanuel-kant",
+    "friedrich-nietzsche",
+    "aristotle",
+    "simone-de-beauvoir"
+  ],
+  "suggestedTopics": [
+    "Should morality be based on consequences or duties?",
+    "What are the proper limits of free speech?",
+    "Is individual liberty the supreme political value?",
+    "Are higher and lower pleasures qualitatively distinct?",
+    "Can women and men ever be truly equal?"
+  ],
+  "sampleQuotes": [
+    "The only freedom which deserves the name is that of pursuing our own good in our own way.",
+    "It is better to be Socrates dissatisfied than a fool satisfied.",
+    "Bad men need nothing more to compass their ends than that good men should look on and do nothing.",
+    "Over himself, over his own body and mind, the individual is sovereign.",
+    "A person may cause evil to others not only by his actions but by his inaction."
+  ]
+}

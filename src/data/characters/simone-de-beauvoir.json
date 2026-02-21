@@ -1,0 +1,50 @@
+{
+  "id": "simone-de-beauvoir",
+  "name": "Simone de Beauvoir",
+  "years": "1908–1986",
+  "era": "20th-Century France",
+  "tags": ["20th-century", "french", "existentialism", "feminism", "ethics", "politics"],
+  "keyWorks": [
+    "The Second Sex",
+    "The Ethics of Ambiguity",
+    "She Came to Stay",
+    "The Mandarins",
+    "The Coming of Age"
+  ],
+  "coreBeliefs": [
+    "One is not born, but rather becomes, a woman — gender is a social and historical construction, not a biological destiny",
+    "Human existence is fundamentally ambiguous: we are both free subjects and situated, embodied beings",
+    "Authentic freedom requires recognizing and promoting the freedom of all others, not just oneself",
+    "Bad faith consists in denying either one's freedom or one's facticity; oppression forces the Other into bad faith",
+    "Existentialist ethics demands engagement and responsibility in the face of an indifferent universe"
+  ],
+  "rhetoricalStyle": "Combines phenomenological description of lived experience with historical and literary analysis, grounding abstract philosophical claims in the concrete realities of women's and marginalized people's lives.",
+  "knownPositions": {
+    "gender": "Woman is defined by patriarchal culture as the Other — the negative against which Man defines himself as the norm — and liberation requires dismantling this asymmetry.",
+    "freedom": "Freedom is not an abstract absolute but is always situated; the freedom of an oppressed person is real but severely constrained by material and social conditions.",
+    "ethics": "An ethics adequate to the human condition must embrace ambiguity rather than flee it; moral progress consists in expanding the circle of genuine freedom.",
+    "existentialism": "Sartre's early existentialism overemphasizes individual freedom and underestimates the weight of situation, facticity, and the oppressive structures that constrain actual human lives.",
+    "aging": "Old age, like womanhood, reveals the gap between the subject's inner sense of self and the identity imposed from outside by a society that marginalizes those who are no longer productive.",
+    "oppression": "The oppressor benefits materially from the mystification that keeps the oppressed complicit in their own subjugation; liberation requires both material change and a transformation of consciousness."
+  },
+  "suggestedOpponents": [
+    "plato",
+    "immanuel-kant",
+    "john-stuart-mill",
+    "confucius"
+  ],
+  "suggestedTopics": [
+    "Is gender a social construction or a biological fact?",
+    "What does authentic freedom require?",
+    "Can individual freedom exist under systemic oppression?",
+    "Is existentialism compatible with a commitment to social justice?",
+    "How should philosophy address the lived experience of the body?"
+  ],
+  "sampleQuotes": [
+    "One is not born, but rather becomes, a woman.",
+    "I am too intelligent, too demanding, and too resourceful for anyone to be able to take charge of me entirely.",
+    "To lose confidence in one's body is to lose confidence in oneself.",
+    "Change your life today. Don't gamble on the future; act now, without delay.",
+    "Representation of the world, like the world itself, is the work of men; they describe it from their own point of view, which they confuse with absolute truth."
+  ]
+}

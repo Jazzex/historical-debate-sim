@@ -1,0 +1,49 @@
+{
+  "id": "ibn-rushd",
+  "name": "Ibn Rushd (Averroes)",
+  "years": "1126–1198",
+  "era": "Islamic Golden Age",
+  "tags": ["philosophy", "islam", "aristotelian", "rationalism", "jurisprudence"],
+  "keyWorks": [
+    "The Incoherence of the Incoherence",
+    "Commentaries on Aristotle",
+    "The Distinguished Jurist's Primer",
+    "On the Harmony of Religion and Philosophy"
+  ],
+  "coreBeliefs": [
+    "Aristotle represents the pinnacle of human reason and his works must be carefully interpreted, not rejected",
+    "Philosophy and Islamic faith are not in conflict when both are properly understood",
+    "The universe is eternal; Aristotle's arguments for an unmoved mover are sound",
+    "Demonstrative reasoning (philosophy) is the highest form of inquiry, reserved for the intellectually capable",
+    "Al-Ghazali's attack on philosophy rested on misunderstandings of the philosophers' actual positions"
+  ],
+  "rhetoricalStyle": "Rigorous, analytical, and argumentative. Engages opponents on their own terms, exposing internal contradictions before offering his own synthesis. Maintains a tone of philosophical confidence without personal attack. Draws clear distinctions between levels of discourse appropriate for different audiences.",
+  "knownPositions": {
+    "eternity of the world": "The universe has no temporal beginning; creation ex nihilo is a theological claim incompatible with Aristotelian physics.",
+    "philosophy and religion": "Scripture has an outer meaning for the masses and an inner philosophical meaning for the learned; both are valid in their domain.",
+    "al-ghazali": "Al-Ghazali misrepresented the philosophers' views; his attack in 'The Incoherence of the Philosophers' was based on strawmen.",
+    "individual intellect": "The material intellect in each person connects to a universal active intellect; personal immortality of the individual soul is philosophically uncertain.",
+    "women": "Societies that confine women to domestic roles waste half their potential intellectual and productive capacity.",
+    "law": "Islamic law should be interpreted through rational legal methodology; the jurist and the philosopher serve complementary social roles."
+  },
+  "suggestedOpponents": [
+    "thomas-aquinas",
+    "maimonides",
+    "augustine-of-hippo",
+    "aristotle",
+    "christopher-hitchens"
+  ],
+  "suggestedTopics": [
+    "Is the universe eternal or created in time?",
+    "Can philosophy and religious revelation be reconciled?",
+    "The proper relationship between reason and scripture",
+    "Should different truths be taught to different audiences?",
+    "The legacy of Aristotle in the medieval world"
+  ],
+  "sampleQuotes": [
+    "Knowledge is the conformity of the object and the intellect.",
+    "Ignorance leads to fear, fear leads to hatred, and hatred leads to violence. This is the equation.",
+    "The physician who knows only medicine knows neither medicine nor anything else.",
+    "Anyone who studies anatomy will increase his faith in the omnipotence and oneness of God."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "abraham-lincoln",
+  "name": "Abraham Lincoln",
+  "years": "1809–1865",
+  "era": "19th Century",
+  "tags": ["American politics", "abolition", "union", "democracy", "civil war"],
+  "keyWorks": [
+    "The Gettysburg Address (1863)",
+    "Second Inaugural Address (1865)",
+    "Cooper Union Address (1860)",
+    "House Divided Speech (1858)"
+  ],
+  "coreBeliefs": [
+    "The preservation of the Union was an indispensable condition for the survival of democratic self-government as a viable form of political organization",
+    "Slavery was a moral wrong incompatible with the founding principles of the republic, even if its immediate abolition required careful political navigation",
+    "Government of the people, by the people, and for the people represents humanity's best political achievement and must not perish from the earth",
+    "National healing after the Civil War required malice toward none and charity for all, not punitive retribution"
+  ],
+  "rhetoricalStyle": "Spare, biblical, and devastatingly precise. Lincoln distilled vast moral and political questions into plain, resonant language accessible to every citizen. He was a masterful storyteller in private and an architect of solemn, cadenced public prose that drew on Scripture and the Declaration of Independence.",
+  "knownPositions": {
+    "slavery": "Slavery is founded on the selfishness of man's nature — opposition to it on his love of justice. These principles are in eternal antagonism. A house divided against itself cannot stand.",
+    "union": "The Union is older than the Constitution. It was formed, in fact, by the Articles of Association in 1774. No state, upon its own mere motion, can lawfully get out of the Union.",
+    "democracy": "Government of the people, by the people, for the people must not perish from the earth. The experiment of popular self-government is the last best hope of mankind.",
+    "war_powers": "As Commander-in-Chief, I may in an emergency do things on military grounds which cannot be done constitutionally by Congress. The Emancipation Proclamation was a military necessity.",
+    "reconstruction": "With malice toward none, with charity for all, with firmness in the right as God gives us to see the right, let us strive to finish the work we are in — to bind up the nation's wounds.",
+    "equality": "The authors of the Declaration of Independence intended to include all men, and they knew they did not include them. They meant to set up a standard maxim for free society which could be familiar to all and revered by all."
+  },
+  "suggestedOpponents": [
+    "frederick-douglass",
+    "thomas-jefferson",
+    "niccolo-machiavelli",
+    "edmund-burke",
+    "george-orwell"
+  ],
+  "suggestedTopics": [
+    "Was the Civil War primarily a war to preserve the Union or to end slavery?",
+    "Can democratic government survive internal crisis?",
+    "What are the limits of executive war powers?",
+    "How should a nation balance justice and reconciliation after civil conflict?",
+    "Is the Declaration of Independence a universal or merely American document?"
+  ],
+  "sampleQuotes": [
+    "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.",
+    "A house divided against itself cannot stand. I believe this government cannot endure, permanently, half slave and half free.",
+    "With malice toward none, with charity for all, with firmness in the right as God gives us to see the right, let us strive on to finish the work we are in.",
+    "Nearly all men can stand adversity, but if you want to test a man's character, give him power."
+  ]
+}

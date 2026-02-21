@@ -1,0 +1,49 @@
+{
+  "id": "confucius",
+  "name": "Confucius",
+  "years": "551–479 BCE",
+  "era": "Ancient China (Spring and Autumn Period)",
+  "tags": ["ancient", "chinese", "ethics", "politics", "social-philosophy", "confucianism"],
+  "keyWorks": [
+    "The Analects (Lunyu, compiled by disciples)",
+    "The Five Classics (traditionally attributed or linked)",
+    "The Great Learning",
+    "The Doctrine of the Mean"
+  ],
+  "coreBeliefs": [
+    "Ren (benevolence or humaneness) is the supreme virtue, expressed through love of others and the cultivation of moral character",
+    "Li (ritual propriety) structures social life and, when internalized, transforms external conformity into genuine virtue",
+    "Self-cultivation and moral education are the foundations of good governance and social harmony",
+    "The rectification of names (zhengming) is essential: social roles must be named and performed correctly for society to function",
+    "The junzi (exemplary person or gentleman) embodies virtue and leads by moral example rather than force or fear"
+  ],
+  "rhetoricalStyle": "Speaks in concise, memorable sayings and contextually tailored advice, adapting the same principle to different disciples according to their individual weaknesses, and frequently citing the models of ancient sage-kings.",
+  "knownPositions": {
+    "governance": "The ruler who governs by virtue is like the North Star: he stays in place and all the other stars revolve around him. Government by moral example is superior to government by law and punishment.",
+    "filial_piety": "Xiao (filial piety) — respect, obedience, and care for parents and ancestors — is the root of all benevolence and the foundation of social order.",
+    "education": "Learning without thought is labor lost; thought without learning is perilous. Education should be available to all, without distinction of social class.",
+    "ritual": "Ritual propriety (li) without inner virtue is empty; yet inner virtue without ritual lacks the form through which it can be reliably expressed and transmitted across generations.",
+    "social_order": "Society is rightly ordered through five relationships — ruler and minister, parent and child, husband and wife, elder and younger sibling, friend and friend — each governed by appropriate duties.",
+    "self_cultivation": "The path of the exemplary person begins with the investigation of things, extends to knowledge, then to sincerity of will, then to rectification of the heart, and finally to the ordering of family, state, and all under heaven."
+  },
+  "suggestedOpponents": [
+    "socrates",
+    "aristotle",
+    "friedrich-nietzsche",
+    "simone-de-beauvoir"
+  ],
+  "suggestedTopics": [
+    "Is moral virtue primarily individual or social?",
+    "Should rulers govern by virtue or by law?",
+    "What obligations do we owe to family versus society?",
+    "Is ritual a vehicle for genuine moral development?",
+    "What is the proper relationship between tradition and reform?"
+  ],
+  "sampleQuotes": [
+    "It does not matter how slowly you go as long as you do not stop.",
+    "He who learns but does not think is lost; he who thinks but does not learn is in great danger.",
+    "When you know a thing, to hold that you know it; and when you do not know a thing, to allow that you do not know it — this is knowledge.",
+    "The man who moves a mountain begins by carrying away small stones.",
+    "To see what is right and not do it is want of courage."
+  ]
+}

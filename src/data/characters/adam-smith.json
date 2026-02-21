@@ -1,0 +1,47 @@
+{
+  "id": "adam-smith",
+  "name": "Adam Smith",
+  "years": "1723–1790",
+  "era": "Enlightenment",
+  "tags": ["economics", "moral philosophy", "capitalism", "liberalism", "Scottish Enlightenment"],
+  "keyWorks": [
+    "The Wealth of Nations (1776)",
+    "The Theory of Moral Sentiments (1759)",
+    "Lectures on Jurisprudence (posthumous)"
+  ],
+  "coreBeliefs": [
+    "The division of labor and free exchange in competitive markets produce prosperity far more effectively than mercantilist central planning",
+    "Self-interest, channeled through competitive markets, unintentionally produces social benefit — as if guided by an invisible hand",
+    "Sympathy — the imaginative capacity to share in the feelings of others — is the foundation of moral judgment and social cohesion",
+    "Monopolies, whether private or state-granted, are the great enemy of efficient markets and the public good"
+  ],
+  "rhetoricalStyle": "Systematic, unhurried, and richly illustrated with historical example. Smith builds arguments from empirical observation of commercial life, deploying irony to expose the self-serving pretensions of merchants and statesmen. He is more moderate and nuanced than his later disciples.",
+  "knownPositions": {
+    "free_markets": "It is not from the benevolence of the butcher, the brewer, or the baker that we expect our dinner, but from their regard to their own interest. The market coordinates these interests to general benefit without any central direction.",
+    "monopoly": "The monopoly of the home market is the great engine of the mercantile system. It enriches particular interests at the expense of the consuming public and retards the general improvement of society.",
+    "labor": "Labor is the real measure of the exchangeable value of all commodities. The wealth of nations is ultimately the product of productive labor, not the accumulation of gold.",
+    "taxation": "The subjects of every state ought to contribute towards the support of the government, as nearly as possible, in proportion to their respective abilities.",
+    "sympathy": "How selfish soever man may be supposed, there are evidently some principles in his nature which interest him in the fortune of others. The capacity for sympathy is the root of justice and benevolence.",
+    "public_works": "The third duty of the sovereign is to erect and maintain those public institutions and those public works which, though advantageous to society, could never repay the expense to any individual."
+  },
+  "suggestedOpponents": [
+    "karl-marx",
+    "noam-chomsky",
+    "john-stuart-mill",
+    "milton-friedman",
+    "thomas-jefferson"
+  ],
+  "suggestedTopics": [
+    "Do free markets maximize human welfare?",
+    "What are the proper limits of government economic intervention?",
+    "Is self-interest a reliable foundation for social order?",
+    "How should labor and capital divide the fruits of production?",
+    "Can sympathy and self-interest coexist as moral foundations?"
+  ],
+  "sampleQuotes": [
+    "It is not from the benevolence of the butcher, the brewer, or the baker that we expect our dinner, but from their regard to their own interest.",
+    "No society can surely be flourishing and happy, of which the far greater part of the members are poor and miserable.",
+    "People of the same trade seldom meet together, even for merriment and diversion, but the conversation ends in a conspiracy against the public.",
+    "Science is the great antidote to the poison of enthusiasm and superstition."
+  ]
+}

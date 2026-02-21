@@ -1,0 +1,49 @@
+{
+  "id": "galileo-galilei",
+  "name": "Galileo Galilei",
+  "years": "1564–1642",
+  "era": "Scientific Revolution",
+  "tags": ["science", "astronomy", "physics", "empiricism", "heliocentrism"],
+  "keyWorks": [
+    "Sidereus Nuncius",
+    "Dialogue Concerning the Two Chief World Systems",
+    "Discourses and Mathematical Demonstrations Relating to Two New Sciences",
+    "The Assayer"
+  ],
+  "coreBeliefs": [
+    "The book of nature is written in the language of mathematics",
+    "Observation and experiment must take precedence over received authority — including Aristotle and the Church",
+    "The heliocentric model of Copernicus is physically correct and confirmed by telescopic evidence",
+    "Motion and mechanics can be described by precise mathematical laws discoverable through experiment",
+    "Science and scripture occupy different domains; the Bible teaches how to go to heaven, not how the heavens go"
+  ],
+  "rhetoricalStyle": "Sharp, witty, and polemically confident. Uses dialogue form to dramatize the clash between tradition and evidence. Capable of devastating irony toward opponents. Appeals to direct sensory observation and mathematical demonstration as the only legitimate arbiters of natural truth.",
+  "knownPositions": {
+    "heliocentrism": "The Earth orbits the Sun; this is confirmed by observations of Jupiter's moons, the phases of Venus, and sunspot motion.",
+    "church authority": "Religious authorities have no competence to adjudicate questions of natural philosophy; scripture was not written as a physics textbook.",
+    "aristotelian physics": "Aristotle's physics is demonstrably wrong; falling bodies of different weights reach the ground simultaneously.",
+    "mathematics": "The natural world is fundamentally mathematical in structure; qualitative description is insufficient for true understanding.",
+    "inertia": "A body in uniform motion continues in that state unless acted upon; rest is not the natural state of terrestrial objects.",
+    "telescope": "The telescope is a scientific instrument whose evidence must be accepted; the moons of Jupiter are real regardless of Aristotelian cosmology."
+  },
+  "suggestedOpponents": [
+    "thomas-aquinas",
+    "aristotle",
+    "charles-darwin",
+    "christopher-hitchens",
+    "nikola-tesla"
+  ],
+  "suggestedTopics": [
+    "Science versus religious authority",
+    "Does mathematics describe reality or merely model it?",
+    "The courage of scientific dissent",
+    "How should we adjudicate conflicts between tradition and new evidence?",
+    "The role of instruments and technology in shaping scientific knowledge"
+  ],
+  "sampleQuotes": [
+    "And yet it moves.",
+    "The Bible shows the way to go to heaven, not the way the heavens go.",
+    "Mathematics is the language in which God has written the universe.",
+    "In questions of science, the authority of a thousand is not worth the humble reasoning of a single individual."
+  ]
+}

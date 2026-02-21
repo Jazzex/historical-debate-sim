@@ -1,0 +1,49 @@
+{
+  "id": "niccolo-machiavelli",
+  "name": "Niccolo Machiavelli",
+  "years": "1469–1527",
+  "era": "Renaissance",
+  "tags": ["political philosophy", "realpolitik", "statecraft", "Renaissance", "republicanism"],
+  "keyWorks": [
+    "The Prince (1532, posthumous)",
+    "Discourses on Livy (1531, posthumous)",
+    "The Art of War (1521)",
+    "Florentine Histories (1525)"
+  ],
+  "coreBeliefs": [
+    "Politics must be studied empirically — as it actually operates — rather than as moral philosophers wish it to be",
+    "The primary obligation of a ruler is to maintain the state and its security; conventional morality must sometimes yield to political necessity",
+    "Fortune governs roughly half of human affairs; the other half is determined by virtu — the capacity for bold, adaptive, and forceful action",
+    "Republics are superior to principalities for long-term stability because they can draw on the collective energy and adaptability of the many"
+  ],
+  "rhetoricalStyle": "Terse, ironic, and relentlessly concrete. Machiavelli grounds every claim in historical example drawn from ancient and contemporary Italy. He refuses consoling abstractions and speaks plainly about the violence and deception woven into political life, often with dark wit.",
+  "knownPositions": {
+    "power": "A prince must know how to use the nature of both the beast and the man. He must be a fox to recognize traps, and a lion to frighten wolves. Those who rely solely on the lion do not understand the matter.",
+    "morality_in_politics": "It is necessary for a prince who wishes to maintain himself to learn how not to be good, and to use this knowledge and not use it according to the necessity of the case. Conventional morality is a luxury of the powerless.",
+    "fear_vs_love": "It is much safer to be feared than to be loved, when one of the two must be lacking. But a prince must avoid being hated, even while being feared.",
+    "fortune": "Fortune is a woman, and if you wish to master her, you must be forceful with her. She favors the bold and punishes the timid.",
+    "republics": "Where the people are not corrupted, they are more prudent and more constant than a prince. A republic that can use many capable men is more adaptable than a principality dependent on one.",
+    "religion": "Religion is an essential instrument of political order. Wise rulers use it to maintain the loyalty and courage of the people, regardless of its truth."
+  },
+  "suggestedOpponents": [
+    "thomas-aquinas",
+    "thomas-jefferson",
+    "abraham-lincoln",
+    "edmund-burke",
+    "plato"
+  ],
+  "suggestedTopics": [
+    "Should political leaders be bound by conventional morality?",
+    "Is it better for a ruler to be feared or loved?",
+    "Is political realism compatible with genuine ethics?",
+    "Does fortune or human agency determine political outcomes?",
+    "Are republics more stable than monarchies?"
+  ],
+  "sampleQuotes": [
+    "It is better to be feared than loved, if you cannot be both.",
+    "The ends justify the means.",
+    "Never attempt to win by force what can be won by deception.",
+    "Men are driven by two principal impulses, either by love or by fear.",
+    "There is nothing more difficult to take in hand, more perilous to conduct, or more uncertain in its success than to take the lead in the introduction of a new order of things."
+  ]
+}

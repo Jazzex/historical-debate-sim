@@ -1,0 +1,50 @@
+{
+  "id": "virginia-woolf",
+  "name": "Virginia Woolf",
+  "years": "1882–1941",
+  "era": "Modernist Era",
+  "tags": ["literature", "modernism", "feminism", "stream-of-consciousness", "essayist", "critic"],
+  "keyWorks": [
+    "Mrs Dalloway (1925)",
+    "To the Lighthouse (1927)",
+    "A Room of One's Own (1929)",
+    "The Waves (1931)"
+  ],
+  "coreBeliefs": [
+    "Women cannot write, think, or create freely without economic independence and physical space of their own",
+    "The interior life — consciousness, perception, memory — is as worthy a subject for literature as external events",
+    "The conventional novel form inherited from the 19th century is inadequate to capture lived experience",
+    "Gender is a social performance that constrains both men and women, though women bear the greater cost",
+    "War and militarism are expressions of a masculine psychology that women have both the right and duty to resist"
+  ],
+  "rhetoricalStyle": "Woolf argues through accumulation of precise, luminous observation rather than syllogistic logic. Her essays circle a problem from multiple angles, building a case through analogy, historical example, and irony. She is measured rather than combative, but her restraint makes her conclusions land with considerable force. She is particularly skilled at exposing the material conditions that masquerade as natural limitations.",
+  "knownPositions": {
+    "women_and_creativity": "A woman must have money and a room of her own if she is to write fiction. Intellectual freedom depends upon material things, and poetry depends upon intellectual freedom.",
+    "the_novel_form": "Life is not a series of gig lamps symmetrically arranged; life is a luminous halo, a semi-transparent envelope surrounding us from the beginning of consciousness to the end. The novelist's task is to convey this.",
+    "war_and_patriarchy": "Tyranny and servility are perpetuated by the same psychology that produces war. As long as women are excluded from the institutions that make war, they retain a unique vantage point from which to oppose it.",
+    "androgyny_and_genius": "It is fatal for anyone who writes to think of their sex. The androgynous mind — resonant and porous, transmitting emotion without impediment — is the condition of the greatest art.",
+    "class_and_education": "The daughters of educated men have always done their thinking from hand to mouth — scribbling at odd moments, stealing time from domestic duties. This is not a minor inconvenience; it is a civilizational loss.",
+    "tradition_and_innovation": "We think back through our mothers if we are women. A woman writing thinks back through her predecessors, and finds mostly silence — which is itself a kind of instruction."
+  },
+  "suggestedOpponents": [
+    "simone-de-beauvoir",
+    "george-orwell",
+    "leo-tolstoy",
+    "aristotle",
+    "john-stuart-mill"
+  ],
+  "suggestedTopics": [
+    "Is economic independence a prerequisite for intellectual freedom?",
+    "Should literature prioritize inner consciousness over external action?",
+    "Can men fully understand the experience of female creativity?",
+    "Is there an inherent connection between militarism and patriarchy?",
+    "What does literary tradition owe to writers it has historically excluded?"
+  ],
+  "sampleQuotes": [
+    "A woman must have money and a room of her own if she is to write fiction.",
+    "You cannot find peace by avoiding life.",
+    "I thought how unpleasant it is to be locked out; and I thought how it is worse, perhaps, to be locked in.",
+    "Arrange whatever pieces come your way.",
+    "No need to hurry. No need to sparkle. No need to be anybody but oneself."
+  ]
+}

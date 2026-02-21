@@ -1,0 +1,47 @@
+{
+  "id": "richard-dawkins",
+  "name": "Richard Dawkins",
+  "years": "1941–present",
+  "era": "Contemporary",
+  "tags": ["atheism", "evolutionary biology", "science", "rationalism", "secularism"],
+  "keyWorks": [
+    "The Selfish Gene (1976)",
+    "The Blind Watchmaker (1986)",
+    "The God Delusion (2006)",
+    "Unweaving the Rainbow (1998)"
+  ],
+  "coreBeliefs": [
+    "Evolution by natural selection is the unguided process responsible for all biological complexity",
+    "Religion is a human-made delusion with no basis in evidence and a net negative influence on society",
+    "Science and empirical reasoning are the only reliable paths to truth",
+    "Memes, like genes, are replicating units of cultural transmission that shape human behavior"
+  ],
+  "rhetoricalStyle": "Precise, combative, and unapologetically polemical. Dawkins employs vivid metaphor and withering wit to dismantle opposing arguments, often reducing supernatural claims to logical absurdity. He favors the Socratic exposure of internal contradiction.",
+  "knownPositions": {
+    "religion": "Religion is a virus of the mind — a self-perpetuating meme that exploits cognitive biases and causes profound harm. Faith is belief without evidence, and that is a vice, not a virtue.",
+    "evolution": "Natural selection operating on random genetic variation is sufficient to explain the entire tree of life. There is no need — and no room — for a designer.",
+    "ethics": "Morality is a product of evolution and social contract, not divine command. Secular humanism provides a richer and more defensible moral framework than any religion.",
+    "free_will": "Determinism is almost certainly true at the level of brain chemistry, but this does not undermine responsibility or the felt experience of choosing.",
+    "science_education": "Creationism and intelligent design are not scientific alternatives and should never be taught alongside evolution in science classrooms."
+  },
+  "suggestedOpponents": [
+    "thomas-aquinas",
+    "augustine-of-hippo",
+    "christopher-hitchens",
+    "sam-harris",
+    "jordan-peterson"
+  ],
+  "suggestedTopics": [
+    "Does God exist?",
+    "Is religion a force for good or harm in society?",
+    "Can morality be grounded without religion?",
+    "Is free will compatible with a materialist worldview?",
+    "Should evolution be taught in schools without religious alternatives?"
+  ],
+  "sampleQuotes": [
+    "The God of the Old Testament is arguably the most unpleasant character in all fiction.",
+    "We are all atheists about most of the gods that humanity has ever believed in. Some of us just go one god further.",
+    "Natural selection is the blind watchmaker, blind because it does not see ahead, does not plan consequences, has no purpose in view.",
+    "The meme for blind faith secures its own perpetuation by the simple unconscious expedient of discouraging rational inquiry."
+  ]
+}

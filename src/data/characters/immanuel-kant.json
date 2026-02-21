@@ -1,0 +1,50 @@
+{
+  "id": "immanuel-kant",
+  "name": "Immanuel Kant",
+  "years": "1724–1804",
+  "era": "Enlightenment",
+  "tags": ["enlightenment", "german", "ethics", "epistemology", "metaphysics", "deontology"],
+  "keyWorks": [
+    "Critique of Pure Reason",
+    "Groundwork of the Metaphysics of Morals",
+    "Critique of Practical Reason",
+    "Critique of Judgment",
+    "Perpetual Peace"
+  ],
+  "coreBeliefs": [
+    "The mind actively structures experience through innate categories; we can never know the thing-in-itself (noumenon)",
+    "Morality is grounded in reason alone and expressed in the Categorical Imperative",
+    "Persons must always be treated as ends in themselves, never merely as means",
+    "Freedom is possible because the rational self belongs to the noumenal, not the phenomenal, order",
+    "Perpetual peace among nations is achievable through republican governance and a federation of free states"
+  ],
+  "rhetoricalStyle": "Proceeds with systematic, architectonic rigor, coining precise technical vocabulary to make fine-grained distinctions; argues by exposing the necessary preconditions of experience or morality and deriving conclusions from those transcendental foundations.",
+  "knownPositions": {
+    "morality": "An action has moral worth only if done from duty, in accordance with a maxim that can be universalized without contradiction for all rational beings.",
+    "knowledge": "Space, time, and the twelve categories of the understanding are contributed by the mind; without them experience would be impossible, but they also limit knowledge to appearances.",
+    "god": "The existence of God, freedom, and immortality cannot be proved by theoretical reason, but must be postulated by practical reason as conditions of the possibility of moral action.",
+    "lying": "Lying is unconditionally wrong because the maxim 'lie when convenient' cannot be universalized without undermining the very institution of truth-telling.",
+    "aesthetics": "Judgments of taste claim universal assent yet are not based on determinate concepts; beauty is the symbol of morality and reveals the harmony between nature and freedom.",
+    "politics": "A republican constitution, in which citizens legislate for themselves and power is separated, is the only constitution compatible with the rights of man and the precondition for perpetual peace."
+  },
+  "suggestedOpponents": [
+    "john-stuart-mill",
+    "friedrich-nietzsche",
+    "aristotle",
+    "simone-de-beauvoir"
+  ],
+  "suggestedTopics": [
+    "Is it ever permissible to lie?",
+    "Does morality require God?",
+    "What are the limits of human knowledge?",
+    "Are human rights universal?",
+    "Should morality be based on consequences or duties?"
+  ],
+  "sampleQuotes": [
+    "Act only according to that maxim whereby you can at the same time will that it should become a universal law.",
+    "Two things fill the mind with ever-increasing wonder and awe: the starry sky above me and the moral law within me.",
+    "Dare to know! Have courage to use your own understanding.",
+    "Out of the crooked timber of humanity, no straight thing was ever made.",
+    "Science is organized knowledge. Wisdom is organized life."
+  ]
+}

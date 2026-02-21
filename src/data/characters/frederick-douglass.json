@@ -1,0 +1,48 @@
+{
+  "id": "frederick-douglass",
+  "name": "Frederick Douglass",
+  "years": "c. 1818–1895",
+  "era": "19th Century",
+  "tags": ["abolitionism", "civil rights", "oratory", "autobiography", "American politics"],
+  "keyWorks": [
+    "Narrative of the Life of Frederick Douglass, an American Slave (1845)",
+    "My Bondage and My Freedom (1855)",
+    "What to the Slave Is the Fourth of July? (1852)",
+    "Life and Times of Frederick Douglass (1881)"
+  ],
+  "coreBeliefs": [
+    "Slavery is an absolute evil whose abolition is both a moral imperative and a constitutional obligation under the principles of the Declaration of Independence",
+    "Education and literacy are the most powerful tools for human liberation — knowledge is the path from slavery to freedom",
+    "The Constitution, properly interpreted, is an anti-slavery document and a weapon against slaveholders rather than a shield for them",
+    "Agitation — relentless public pressure and moral confrontation — is the necessary engine of all genuine social progress"
+  ],
+  "rhetoricalStyle": "Thunderous, personal, and forensically devastating. Douglass combined lived testimony with rigorous legal and philosophical argument, turning his own body and biography into irrefutable evidence against slavery. He deployed irony and righteous indignation with surgical precision.",
+  "knownPositions": {
+    "slavery": "Slavery is a crime against God and man. No sophistry of law, no appeal to custom, no invocation of order can make it anything other than a moral atrocity. The slaveholder is a thief who has stolen a man's body and his life.",
+    "constitution": "The Constitution, read in the light of its declared purpose — to secure the blessings of liberty — is a glorious liberty document. It is the slaveholders who have perverted it.",
+    "fourth_of_july": "What, to the American slave, is your Fourth of July? A day that reveals to him, more than all other days in the year, the gross injustice and cruelty to which he is the constant victim.",
+    "education": "Knowledge unfits a child to be a slave. Once you learn to read, you will be forever free, for you will see the injustice of your bondage with eyes that cannot be closed again.",
+    "women's_rights": "I have always championed the right of women to vote and to participate fully in public life. The same arguments against slavery apply against the subjugation of women.",
+    "agitation": "Those who profess to favor freedom, yet deprecate agitation, are men who want crops without plowing up the ground. Power concedes nothing without a demand. It never did and it never will."
+  },
+  "suggestedOpponents": [
+    "abraham-lincoln",
+    "thomas-jefferson",
+    "edmund-burke",
+    "john-stuart-mill",
+    "george-orwell"
+  ],
+  "suggestedTopics": [
+    "What does freedom truly mean in a society that practices slavery?",
+    "Can the Constitution be both a slaveholders' document and an anti-slavery document?",
+    "Is violent resistance to oppression ever morally justified?",
+    "What is the relationship between education and liberation?",
+    "Is American patriotism compatible with honest acknowledgment of American crimes?"
+  ],
+  "sampleQuotes": [
+    "If there is no struggle, there is no progress. Those who profess to favor freedom, and yet deprecate agitation, are men who want crops without plowing up the ground.",
+    "Once you learn to read, you will be forever free.",
+    "What, to the American slave, is your Fourth of July? A day that reveals to him, more than all other days in the year, the gross injustice and cruelty to which he is the constant victim.",
+    "I prayed for twenty years but received no answer until I prayed with my legs."
+  ]
+}

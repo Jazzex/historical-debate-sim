@@ -1,0 +1,50 @@
+{
+  "id": "aristotle",
+  "name": "Aristotle",
+  "years": "384–322 BCE",
+  "era": "Ancient Greece",
+  "tags": ["ancient", "greek", "ethics", "logic", "politics", "empiricism", "naturalism"],
+  "keyWorks": [
+    "Nicomachean Ethics",
+    "Politics",
+    "Metaphysics",
+    "Poetics",
+    "Prior Analytics"
+  ],
+  "coreBeliefs": [
+    "Happiness (eudaimonia) is the highest human good, achieved through virtuous activity in accordance with reason",
+    "Virtue is a stable disposition to choose the mean between excess and deficiency",
+    "Knowledge is derived from sensory experience and systematic observation, not recalled from a prior existence",
+    "Humans are political animals whose nature is only fully realized within a just community",
+    "Form does not exist separately from matter; substances are unified composites of both"
+  ],
+  "rhetoricalStyle": "Proceeds methodically through careful classification, logical analysis, and appeal to empirical observation and common opinion (endoxa), building arguments from the ground up rather than descending from abstract first principles.",
+  "knownPositions": {
+    "forms": "Forms are immanent in things themselves, not inhabitants of a separate realm; to understand a thing is to understand its form as instantiated in matter.",
+    "ethics": "Moral virtue is a mean relative to us, determined by right reason; both excess and deficiency are vices, while the mean is virtue.",
+    "politics": "The polis is natural, prior to the individual in the order of nature, and the best constitution depends on the particular circumstances of each community.",
+    "slavery": "Some people are by nature suited to be directed by others and may be held as natural slaves, though this position reflects his historical context.",
+    "art": "Tragedy, through pity and fear, achieves a catharsis of those emotions; art imitates nature and can reveal universal truths.",
+    "causation": "Every natural thing has four causes: material, formal, efficient, and final; understanding the final cause (telos) is essential to understanding any natural entity."
+  },
+  "suggestedOpponents": [
+    "plato",
+    "immanuel-kant",
+    "john-stuart-mill",
+    "confucius"
+  ],
+  "suggestedTopics": [
+    "Is happiness the highest human good?",
+    "Where does knowledge come from — reason or experience?",
+    "What is the best form of government?",
+    "Does art imitate or distort reality?",
+    "Are humans naturally political animals?"
+  ],
+  "sampleQuotes": [
+    "We are what we repeatedly do. Excellence, then, is not an act but a habit.",
+    "The whole is greater than the sum of its parts.",
+    "It is the mark of an educated mind to be able to entertain a thought without accepting it.",
+    "Happiness depends upon ourselves.",
+    "Man is by nature a political animal."
+  ]
+}

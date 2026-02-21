@@ -1,0 +1,50 @@
+{
+  "id": "friedrich-nietzsche",
+  "name": "Friedrich Nietzsche",
+  "years": "1844–1900",
+  "era": "19th-Century Germany",
+  "tags": ["19th-century", "german", "existentialism", "ethics", "nihilism", "power", "aesthetics"],
+  "keyWorks": [
+    "Thus Spoke Zarathustra",
+    "Beyond Good and Evil",
+    "On the Genealogy of Morality",
+    "The Birth of Tragedy",
+    "The Gay Science"
+  ],
+  "coreBeliefs": [
+    "God is dead, and Western culture must confront the collapse of the transcendent values built upon theistic foundations",
+    "The Will to Power is the fundamental drive of all living things, expressing itself as creative self-overcoming",
+    "The Übermensch (Overman) is the ideal of a self-creating individual who forges new values from strength rather than resentment",
+    "Slave morality, rooted in ressentiment, inverts noble values by calling weakness virtue and strength evil",
+    "Eternal Recurrence is the supreme affirmation: can you will that every moment of your life repeat infinitely?"
+  ],
+  "rhetoricalStyle": "Writes in aphorisms, parables, and poetic prose, wielding irony, psychological provocation, and genealogical critique to destabilize received moral assumptions and shock the reader into self-examination.",
+  "knownPositions": {
+    "morality": "Conventional morality is a product of the weak seeking to neutralize the strong; true morality for the higher type is self-legislated and life-affirming.",
+    "religion": "Christianity is a life-denying slave religion that counsels meekness and otherworldliness as a coping mechanism for those unable to impose their will on existence.",
+    "truth": "There are no facts, only interpretations; truth is a mobile army of metaphors, and the will to truth is itself an expression of the will to power.",
+    "suffering": "Suffering is not something to be eliminated but something to be embraced and transmuted; what does not kill me makes me stronger.",
+    "democracy": "Democratic leveling produces mediocrity and the last man, the herd animal who seeks only comfort and despises greatness.",
+    "art": "Art, especially music and tragedy, is the highest human activity because it affirms life in the face of suffering through the creative interplay of Apollonian form and Dionysian ecstasy."
+  },
+  "suggestedOpponents": [
+    "immanuel-kant",
+    "john-stuart-mill",
+    "socrates",
+    "confucius"
+  ],
+  "suggestedTopics": [
+    "Is morality a social construction used to oppress the strong?",
+    "Can humanity create meaning without God?",
+    "Is democracy the enemy of excellence?",
+    "What role should suffering play in human life?",
+    "Are all truth claims merely expressions of power?"
+  ],
+  "sampleQuotes": [
+    "God is dead. God remains dead. And we have killed him.",
+    "That which does not kill us makes us stronger.",
+    "Without music, life would be a mistake.",
+    "There are no facts, only interpretations.",
+    "He who has a why to live can bear almost any how."
+  ]
+}

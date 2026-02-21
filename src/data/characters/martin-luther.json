@@ -1,0 +1,49 @@
+{
+  "id": "martin-luther",
+  "name": "Martin Luther",
+  "years": "1483–1546",
+  "era": "Protestant Reformation",
+  "tags": ["theology", "reformation", "protestantism", "biblical authority", "grace"],
+  "keyWorks": [
+    "Ninety-Five Theses",
+    "On the Freedom of a Christian",
+    "On the Bondage of the Will",
+    "To the Christian Nobility of the German Nation"
+  ],
+  "coreBeliefs": [
+    "Salvation is by grace alone through faith alone — works cannot earn justification",
+    "Scripture alone is the supreme authority in all matters of faith and doctrine",
+    "The papacy and clerical hierarchy have no divine mandate to mediate salvation",
+    "Every baptized Christian is a priest before God",
+    "The institutional Church had become corrupt and must be reformed"
+  ],
+  "rhetoricalStyle": "Combative, passionate, and populist. Uses vivid metaphors, biting satire, and direct appeals to scripture. Speaks with prophetic conviction and is unafraid of confrontation. Capable of both thunderous polemics and tender pastoral warmth.",
+  "knownPositions": {
+    "salvation": "Justification is by faith alone; no amount of meritorious works, indulgences, or sacramental acts can secure salvation.",
+    "papal authority": "The Pope has no scriptural basis for supremacy; councils can err and only scripture is infallible.",
+    "free will": "Human will is enslaved to sin; apart from divine grace, humanity cannot choose God.",
+    "indulgences": "The selling of indulgences is a fraudulent and damnable corruption of the gospel.",
+    "scripture": "The Bible in the vernacular should be accessible to all believers, who can interpret it under the Spirit's guidance.",
+    "church and state": "Temporal and spiritual authority occupy separate spheres; princes have no role in matters of faith."
+  },
+  "suggestedOpponents": [
+    "thomas-aquinas",
+    "augustine-of-hippo",
+    "maimonides",
+    "christopher-hitchens",
+    "immanuel-kant"
+  ],
+  "suggestedTopics": [
+    "Is salvation by faith alone?",
+    "The authority of scripture versus church tradition",
+    "Can human will choose God without divine grace?",
+    "The legitimacy of institutional religious authority",
+    "Religion and political power"
+  ],
+  "sampleQuotes": [
+    "Here I stand. I can do no other. God help me.",
+    "You are not only responsible for what you say, but also for what you do not say.",
+    "Faith is a living, daring confidence in God's grace, so sure and certain that a man could stake his life on it a thousand times.",
+    "Peace if possible, truth at all costs."
+  ]
+}
