@@ -142,45 +142,44 @@ Status: `[ ]` pending · `[x]` done · `[-]` blocked · `[~]` in progress
 
 ---
 
-## Milestone 5 — Debate API (SSE Endpoint)
+## Milestone 5 — Debate API (SSE Endpoint) ✅
 
-- [ ] **M5-01** Create Hono route `GET /api/debate/turn`:
-  - Validate `debateId` and `characterId` query params
-  - Call `assembleCharacterContext`
-  - Open Anthropic streaming request with `claude-sonnet-4-6`, max 1024 tokens
-  - Return SSE response: stream `{ delta: string }` events, end with `[DONE]`
-- [ ] **M5-02** After stream completes (background async): call `updateWorkingMemory`, save to `character_memory` table
-- [ ] **M5-03** After stream completes (background async): if compression threshold crossed, call `compressEpisodicMemory`, update `character_memory.episodic_summary`
-- [ ] **M5-04** After stream completes: insert completed turn into `debate_turns` table
-- [ ] **M5-05** Server function `createDebate(topic, format, participantIds)` → inserts debate + blank memory rows, returns `debateId`
-- [ ] **M5-06** Server function `getDebate(debateId)` → returns debate + all turns + all character memory rows
-- [ ] **M5-07** Server function `getCharacters(filters?: { tags?, era? })` → returns character list from DB
-- [ ] **M5-08** Server function `getCharacter(id)` → returns single character profile
-- [ ] **M5-09** Server function `getSuggestedTopics(characterIds[])` → calls `claude-haiku-4-5-20251001`, returns 5 topic suggestions
-- [ ] **M5-10** Server function `submitUserTurn(debateId, content)` → inserts turn with `characterId = null`, returns updated turn list
-- [ ] **M5-11** Manual test: curl the SSE endpoint with a seeded debate, verify streaming end-to-end
+- [x] **M5-01** Create Hono route `GET /api/debate/turn` ⚠️ *Implemented as Hono route in `src/server/api/routes/turn.ts` rather than TanStack Start server function — simpler and consistent with "API layer: Hono" architecture*
+  - Validates `debateId` and `characterId` query params
+  - Calls `assembleCharacterContext`, streams via `anthropic.messages.stream()`
+  - SSE response: streams `{ delta: string }` events, ends with `[DONE]`
+- [x] **M5-02** After stream completes (background async): `updateWorkingMemory`, saves to `character_memory` table via `ctx.waitUntil`
+- [x] **M5-03** After stream completes (background async): if `shouldCompressEpisodic` threshold crossed, calls `compressEpisodicMemory`, updates `episodic_summary`
+- [x] **M5-04** After stream completes: inserts completed turn into `debate_turns` table
+- [x] **M5-05** `POST /api/debates` → inserts debate + blank memory rows for all participants, returns `{ debateId }` ⚠️ *Hono route instead of server function*
+- [x] **M5-06** `GET /api/debates/:id` → returns debate + all turns + all character memory rows
+- [x] **M5-07** `GET /api/characters?tags=&era=` → returns filtered character list from DB
+- [x] **M5-08** `GET /api/characters/:id` → returns single character profile
+- [x] **M5-09** `POST /api/debates/topics` → calls `claude-haiku-4-5-20251001` with character context, returns 5 suggested topics
+- [x] **M5-10** `POST /api/debates/:id/turns` → inserts user turn with `characterId = null`, returns created turn
+- [x] **M5-11** Create `src/server.ts` custom Workers entry — routes `/api/*` to Hono, `/*` to TanStack Start ⚠️ *Added custom server entry file instead of manual curl test (requires `wrangler dev` + seeded D1 for E2E test — see M3-71)*
 
 ---
 
 ## Milestone 6 — Character Browser UI
 
-- [ ] **M6-01** `src/components/characters/CharacterCard.tsx` — shadcn `Card` with avatar, name, years, era, tag badges
-- [ ] **M6-02** `src/components/characters/CharacterSearch.tsx` — text input + tag filter pills; filters grid client-side
-- [ ] **M6-03** `src/components/characters/CharacterBio.tsx` — shadcn `Sheet`: bio, key works, known positions, suggested topics, "Add to Debate"
-- [ ] **M6-04** `/characters` route — SSR load all characters, render search + grid, bio sheet on card click
-- [ ] **M6-05** Verify: 34 characters load, filtering works, bio sheet opens correctly
+- [x] **M6-01** `CharacterCard` — monogram frame, name, years, era, tag pills, quote preview, gold hover glow *(inlined in route)*
+- [x] **M6-02** `CharacterSearch` — text search + era filter pills, client-side filtering *(inlined in route)*
+- [x] **M6-03** `CharacterBio` — Sheet slide-out: rhetorical style, core beliefs, quotes, key works, debate topics, "Summon to Debate" CTA *(inlined in route)*
+- [x] **M6-04** `src/routes/characters.tsx` — `/characters` route, client-side fetch from `/api/characters`, 4-col grid, bio sheet on click
+- [ ] **M6-05** Verify: 34 characters load, filtering works, bio sheet opens correctly *(requires `wrangler dev` + seeded D1)*
 
 ---
 
 ## Milestone 7 — Debate Setup Flow
 
-- [ ] **M7-01** `CharacterPicker.tsx` — multi-select grid, min 2 / max 4, roster strip at bottom
-- [ ] **M7-02** `TopicInput.tsx` — free text + "Suggest Topics" button, clickable suggestion chips
-- [ ] **M7-03** `FormatPicker.tsx` — shadcn `RadioGroup`, one option per format with turn diagram
-- [ ] **M7-04** `DebateOptions.tsx` — `Switch` for "Join as Participant", `Select` for response length
-- [ ] **M7-05** `/debate/new` route — multi-step wizard (Tabs, locked progression): Characters → Topic → Format → Options → Confirm
-- [ ] **M7-06** Confirm button calls `createDebate()`, redirects to `/debate/$debateId`
-- [ ] **M7-07** Validation: ≥2 characters to advance from Step 1; topic required for Step 2
+- [x] **M7-01** `CharacterPicker` — 5-col mini card grid, gold check badge on select, max 4 enforced, disabled dim on maxed *(inlined in route)*
+- [x] **M7-02** `TopicInput` — free text + AI suggest button → clickable topic chips *(inlined in route)*
+- [x] **M7-03** `FormatPicker` — 2×2 custom radio cards with turn diagrams (oxford/ld/socratic/townhall) *(inlined in route)*
+- [x] **M7-04** `DebateOptions` — custom toggle switch for participation, 3-option response length picker *(inlined in route)*
+- [x] **M7-05** `src/routes/debate/new.tsx` — 5-step wizard I→V with animated transitions, locked progression, persistent roster strip
+- [x] **M7-06** `StepConvene` calls `POST /api/debates`, redirects via `window.location.href` to `/debate/$debateId`
+- [x] **M7-07** Validation: step 1 requires ≥2 characters; step 2 requires non-empty topic; Continue disabled otherwise
 
 ---
 

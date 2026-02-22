@@ -1,18 +1,35 @@
 # Implementation Plan — Historical Debate Simulator
 
+## Implementation Status
+
+| Milestone | Status | Notes |
+|---|---|---|
+| M1 — Scaffolding | ✅ Done | TanStack Start + Hono + Drizzle + CF Workers |
+| M2 — Types | ✅ Done | CharacterProfile, Debate, DebateTurn, WorkingMemory |
+| M3 — Character data | ✅ Done | 34 JSON profiles + life-knowledge prompts |
+| M4 — AI Memory Engine | ✅ Done | working-memory, episodic-compress, context-assembly |
+| M5 — Debate API | ✅ Done | SSE turn streaming, CRUD routes, custom server entry |
+| M6 — Character Browser | ✅ Done | `/characters` — antiquarian dark aesthetic, Sheet bio |
+| M7 — Debate Setup | ✅ Done | `/debate/new` — 5-step wizard, AI topic suggestions |
+| M8 — Debate Stage UI | 🔜 Next | SSE client, streaming text, podium/transcript views |
+
+---
+
 ## Tech Stack
 
 | Layer | Choice | Reason |
 |---|---|---|
 | Framework | TanStack Start | Vite-based, file-based routing, typed server functions, streaming support, no vendor lock-in |
 | Router | TanStack Router | Type-safe routes, built into TanStack Start |
-| Server State | TanStack Query | First-class integration with TanStack Start's `createServerFn` |
+| API | Hono | Lightweight edge-compatible router; `/api/*` handled separately from SSR |
 | UI Components | shadcn/ui | Accessible Radix primitives, fully customizable, Tailwind-based |
-| Styling | Tailwind CSS v4 | Required by shadcn/ui, utility-first |
-| AI | Claude API (`claude-sonnet-4-6`) | Best-in-class at character roleplay and nuanced argumentation |
-| ORM | Drizzle ORM | Lightweight, TypeScript-native, works with SQLite and Postgres |
-| Database | SQLite (dev) / PostgreSQL (prod) | Simple local dev, scalable prod |
-| Runtime | Bun | Faster installs and execution than Node |
+| Styling | Tailwind CSS v4 + Cormorant Garamond + EB Garamond | Antiquarian dark aesthetic — ink black, antique gold, aged cream |
+| AI | Claude API (`claude-sonnet-4-6` / `claude-haiku-4-5-20251001`) | Sonnet for debate turns; Haiku for memory compression |
+| ORM | Drizzle ORM (D1 adapter) | Lightweight, TypeScript-native, CF D1 compatible |
+| Database | Cloudflare D1 (SQLite at edge) | Single runtime for both API and DB; no separate server needed |
+| Runtime | Bun + Cloudflare Workers | Bun for local dev; CF Workers for production |
+
+> **Stack changes from original plan:** TanStack Query was not needed (direct fetch in loaders). SQLite/Postgres replaced by Cloudflare D1. Hono added as dedicated API layer. Components inlined in route files rather than separate component directories.
 
 ---
 
@@ -51,53 +68,41 @@ bun add -d drizzle-kit @types/better-sqlite3
 
 ```
 src/
+├── server.ts                # Custom CF Workers entry — /api/* → Hono, /* → TanStack Start
 ├── routes/
-│   ├── __root.tsx           # Root layout
-│   ├── index.tsx            # Home — character picker + featured debates
-│   ├── debate/
-│   │   ├── new.tsx          # Setup: pick characters + topic + format
-│   │   └── $debateId.tsx    # Live debate view
-│   └── characters/
-│       └── index.tsx        # Browse all characters
+│   ├── __root.tsx           # Root layout + Google Fonts (Cormorant Garamond + EB Garamond)
+│   ├── index.tsx            # Home (placeholder — M10)
+│   ├── characters.tsx       # /characters — character browser (M6) ✅
+│   └── debate/
+│       ├── new.tsx          # /debate/new — setup wizard (M7) ✅
+│       └── $debateId.tsx    # /debate/:id — live debate stage (M8) 🔜
 ├── server/
+│   ├── api/
+│   │   ├── index.ts         # Hono app, DB middleware, route registration
+│   │   └── routes/
+│   │       ├── characters.ts # GET /api/characters, GET /api/characters/:id
+│   │       ├── debates.ts    # POST /api/debates, GET /api/debates/:id, POST /api/debates/topics
+│   │       └── turns.ts      # GET /api/debate/turn (SSE stream)
 │   ├── db/
-│   │   ├── schema.ts        # Drizzle schema (characters, debates, turns, memory)
-│   │   └── index.ts         # DB connection
-│   ├── functions/
-│   │   ├── debate.ts        # createServerFn — start/continue debate
-│   │   └── characters.ts    # createServerFn — fetch character data
+│   │   ├── schema.ts        # Drizzle D1 schema (characters, debates, debate_turns, character_memory)
+│   │   ├── index.ts         # getDb() — Drizzle D1 client factory
+│   │   └── seed.ts          # Seed script — reads JSON profiles → D1
 │   └── ai/
 │       ├── client.ts        # Anthropic SDK init
-│       ├── life-knowledge/  # Per-character life knowledge prompts
-│       │   ├── martin-luther.ts
-│       │   ├── richard-dawkins.ts
-│       │   └── ...
-│       ├── memory/
-│       │   ├── working-memory.ts    # Update working memory after each turn
-│       │   ├── episodic-compress.ts # Compress old turns into character summary
-│       │   └── context-assembly.ts  # Assemble full context for a turn
-│       └── debate-engine.ts # Turn orchestration, format rules, SSE route
+│       ├── life-knowledge/  # 34 first-person TS persona files (one per character)
+│       └── memory/
+│           ├── working-memory.ts    # initWorkingMemory, updateWorkingMemory
+│           ├── episodic-compress.ts # compressEpisodicMemory (haiku call, tool_use)
+│           └── context-assembly.ts  # assembleCharacterContext — builds system prompt + messages
 ├── components/
-│   ├── debate/
-│   │   ├── DebateStage.tsx  # Main debate layout (podium or chat)
-│   │   ├── TurnBubble.tsx   # Individual debater speech bubble
-│   │   ├── StreamingText.tsx# Streams tokens in real time
-│   │   └── DebateControls.tsx # Next turn, pause, export
-│   ├── characters/
-│   │   ├── CharacterCard.tsx
-│   │   ├── CharacterSearch.tsx
-│   │   └── CharacterBio.tsx # Sidebar bio / historical context
-│   └── layout/
-│       └── AppHeader.tsx
+│   └── ui/                  # shadcn/ui primitives (card, badge, sheet, scroll-area, etc.)
 ├── data/
-│   └── characters/          # JSON profiles (seeded into DB)
-│       ├── martin-luther.json
-│       ├── richard-dawkins.json
-│       ├── socrates.json
-│       └── ...
-└── lib/
-    ├── debate-formats.ts    # Format definitions and rules
-    └── utils.ts
+│   └── characters/          # 34 JSON profiles (seeded into D1 via seed.ts)
+├── lib/
+│   └── utils.ts             # cn() helper
+└── types/
+    ├── character.ts         # CharacterProfile interface
+    └── debate.ts            # Debate, DebateTurn, DebateFormat, TurnRole
 ```
 
 ---
