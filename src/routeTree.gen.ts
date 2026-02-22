@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as CharactersRouteImport } from './routes/characters'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DebateNewRouteImport } from './routes/debate/new'
+import { Route as DebateDebateIdRouteImport } from './routes/debate/$debateId'
 
 const CharactersRoute = CharactersRouteImport.update({
   id: '/characters',
@@ -28,34 +29,43 @@ const DebateNewRoute = DebateNewRouteImport.update({
   path: '/debate/new',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DebateDebateIdRoute = DebateDebateIdRouteImport.update({
+  id: '/debate/$debateId',
+  path: '/debate/$debateId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/characters': typeof CharactersRoute
+  '/debate/$debateId': typeof DebateDebateIdRoute
   '/debate/new': typeof DebateNewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/characters': typeof CharactersRoute
+  '/debate/$debateId': typeof DebateDebateIdRoute
   '/debate/new': typeof DebateNewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/characters': typeof CharactersRoute
+  '/debate/$debateId': typeof DebateDebateIdRoute
   '/debate/new': typeof DebateNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/characters' | '/debate/new'
+  fullPaths: '/' | '/characters' | '/debate/$debateId' | '/debate/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/characters' | '/debate/new'
-  id: '__root__' | '/' | '/characters' | '/debate/new'
+  to: '/' | '/characters' | '/debate/$debateId' | '/debate/new'
+  id: '__root__' | '/' | '/characters' | '/debate/$debateId' | '/debate/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CharactersRoute: typeof CharactersRoute
+  DebateDebateIdRoute: typeof DebateDebateIdRoute
   DebateNewRoute: typeof DebateNewRoute
 }
 
@@ -82,12 +92,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DebateNewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/debate/$debateId': {
+      id: '/debate/$debateId'
+      path: '/debate/$debateId'
+      fullPath: '/debate/$debateId'
+      preLoaderRoute: typeof DebateDebateIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CharactersRoute: CharactersRoute,
+  DebateDebateIdRoute: DebateDebateIdRoute,
   DebateNewRoute: DebateNewRoute,
 }
 export const routeTree = rootRouteImport

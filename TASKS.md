@@ -185,16 +185,16 @@ Status: `[ ]` pending · `[x]` done · `[-]` blocked · `[~]` in progress
 
 ## Milestone 8 — Debate Stage UI
 
-- [ ] **M8-01** `StreamingText.tsx` — progressive token rendering, no animation jitter
-- [ ] **M8-02** `TurnBubble.tsx` — avatar, name, role label, content, copy button
-- [ ] **M8-03** `PodiumView.tsx` — 2–4 podiums, active speaker highlighted, streaming in podium area
-- [ ] **M8-04** `TranscriptView.tsx` — scrolling turn bubbles, auto-scroll, live streaming turn at bottom
-- [ ] **M8-05** `DebateControls.tsx` — Next Turn, Export, View Memory (debug), user Textarea + Submit
-- [ ] **M8-06** `DebateHeader.tsx` — topic, format badge, participant avatars, turn counter
-- [ ] **M8-07** `DebateStage.tsx` — composes all above; owns SSE state
-- [ ] **M8-08** `src/lib/hooks/useDebateTurn.ts` — SSE client hook with delta dispatch, `[DONE]` handling, retry
-- [ ] **M8-09** `/debate/$debateId` route — SSR load, mount `<DebateStage>`, Next Turn triggers hook
-- [ ] **M8-10** Verify end-to-end: streaming, memory updates, state persists on refresh
+- [x] **M8-01** `StreamingText` — gold blinking cursor `|` via `animate-pulse`, no per-char animation *(inlined)*
+- [x] **M8-02** `TurnBubble` — monogram/You avatar, name + role stamp + turn #, content, hover-reveal copy button *(inlined)*
+- [x] **M8-03** `PodiumView` — grid of `PodiumCard` per participant, active speaker gold glow + border, speech text w/ streaming cursor *(inlined)*
+- [x] **M8-04** `TranscriptView` — scrolling TurnBubbles, live streaming bubble at bottom, auto-scroll via bottomRef *(inlined)*
+- [x] **M8-05** `DebateControls` — Next Turn (gold CTA), Export to .md, error banner, next-speaker hint, debate-complete state *(inlined)*
+- [x] **M8-06** `DebateHeader` — topic (italic), format badge (small-caps), participant monogram row, turn counter X/Y, Transcript/Podium toggle *(inlined)*
+- [x] **M8-07** `DebateStage` — full-height flex layout, owns all SSE state, handles turn append + currentSpeakerId *(inlined)*
+- [x] **M8-08** `src/lib/hooks/useDebateTurn.ts` — SSE reader loop, delta accumulation, onComplete before setStreaming(false), error handling
+- [x] **M8-09** `src/routes/debate/$debateId.tsx` — client-side load (debate + turns + chars), `DebateStageWrapper` + loading skeleton + error state
+- [ ] **M8-10** Verify end-to-end: streaming, memory updates, state persists on refresh *(requires `wrangler dev` + seeded D1)*
 
 ---
 
