@@ -1,4 +1,4 @@
-import { eq, and } from 'drizzle-orm'
+import { eq, and, isNotNull } from 'drizzle-orm'
 import type { DbClient } from '../db'
 import type { DebateFormat, TurnRole } from '../../types/debate'
 import { debates, debateTurns } from '../db/schema'
@@ -44,10 +44,11 @@ export async function getNextTurn(
   const debate = debateRows[0]
   if (!debate) return null
 
+  // Only count AI turns (characterId IS NOT NULL) — user turns don't advance the AI schedule
   const turns = await db
     .select({ id: debateTurns.id })
     .from(debateTurns)
-    .where(eq(debateTurns.debateId, debateId))
+    .where(and(eq(debateTurns.debateId, debateId), isNotNull(debateTurns.characterId)))
 
   return getNextTurnInfo(debate.format as DebateFormat, debate.participantIds, turns.length)
 }

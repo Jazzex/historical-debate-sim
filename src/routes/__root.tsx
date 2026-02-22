@@ -1,6 +1,7 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
+import { Toaster } from 'sonner'
 
 import appCss from '../styles.css?url'
 
@@ -52,6 +53,19 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               render: <TanStackRouterDevtoolsPanel />,
             },
           ]}
+        />
+        <Toaster
+          theme="dark"
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: '#1a1510',
+              border: '1px solid #2a2018',
+              color: '#d0c8b8',
+              fontFamily: '"EB Garamond", serif',
+              fontSize: '14px',
+            },
+          }}
         />
         <Scripts />
       </body>

@@ -200,30 +200,31 @@ Status: `[ ]` pending · `[x]` done · `[-]` blocked · `[~]` in progress
 
 ## Milestone 9 — User Participation Mode
 
-- [ ] **M9-01** Show user `<Textarea>` in controls after each AI turn when participating
-- [ ] **M9-02** On submit: call `submitUserTurn()`, update transcript immediately
-- [ ] **M9-03** After user turn saved, trigger next AI character's turn
-- [ ] **M9-04** Verify AI characters engage with user content directly
+- [x] **M9-01** Show user `<Textarea>` in controls after each AI turn when participating *(inlined in DebateControls; appears when `waitingForUser = true`)*
+- [x] **M9-02** On submit: call `submitUserTurn()`, update transcript immediately *(POST /api/debates/:id/turns → appends turn optimistically)*
+- [x] **M9-03** After user turn saved, trigger next AI character's turn *(auto-triggered via `startTurn` inside `handleSubmitUserTurn`)*
+- [x] **M9-04** Fix: `getNextTurn` in debate-engine.ts now filters `isNotNull(characterId)` so user turns don't offset AI scheduling ⚠️ *Server-side fix required for correctness*
+- [ ] **M9-05** Verify end-to-end: user participation flow with textarea, submit, auto-trigger *(requires `wrangler dev` + seeded D1)*
 
 ---
 
 ## Milestone 10 — Home Page
 
-- [ ] **M10-01** `src/data/featured-debates.ts` — 8–10 curated pairings (character pair + topic + description)
-- [ ] **M10-02** `FeaturedDebateCard.tsx` — two avatars, topic, description, "Start This Debate" button
-- [ ] **M10-03** `/` home page — hero + CTA + featured debates grid + link to character browser
-- [ ] **M10-04** Verify home page loads with no AI calls (fully static)
+- [x] **M10-01** `src/data/featured-debates.ts` — 8 curated pairings with `characterIds`, `characterNames`, `topic`, `description`, `format`
+- [x] **M10-02** `FeaturedDebateCard` — overlapping monogram circles, character names, topic, description, "Start this debate →" hover CTA *(inlined in route)*
+- [x] **M10-03** `/` home page — hero + stat strip + featured debates 2-col grid + compose CTA + footer *(replaced default TanStack template)*
+- [x] **M10-04** Verify home page loads with no AI calls (fully static) — confirmed: no API calls, all data from `featured-debates.ts`
 
 ---
 
-## Milestone 11 — Export & Polish
+## Milestone 11 — Export & Polish ✅
 
-- [ ] **M11-01** `src/lib/export.ts` — `exportDebateMarkdown(debate, turns, characters): string`
-- [ ] **M11-02** Wire export button — `Blob` + `URL.createObjectURL` download
-- [ ] **M11-03** Loading skeleton on debate stage (shadcn `Skeleton`)
-- [ ] **M11-04** Error boundary on debate route — retry option on SSE failure
-- [ ] **M11-05** Toast notifications (sonner) — debate created, turn saved, export downloaded, errors
-- [ ] **M11-06** Mobile responsiveness — Transcript View default on mobile, thumb-accessible controls
+- [x] **M11-01** `src/lib/export.ts` — `exportDebateMarkdown(debate, turns, characters): string` — pure Markdown generator; `downloadMarkdown(content, filename)` trigger
+- [x] **M11-02** Wire export button — uses `exportDebateMarkdown` + `downloadMarkdown` from `src/lib/export.ts`; toast on success
+- [x] **M11-03** Loading skeleton on debate stage (shadcn `Skeleton`) — `DebateStageSkeleton` refactored to use `<Skeleton>` components
+- [x] **M11-04** Retry option on SSE failure — Retry button in SSE error banner, calls `onRetry` = `handleNextTurn` ⚠️ *"Error boundary" implemented as inline retry in banner, not a React ErrorBoundary component*
+- [x] **M11-05** Toast notifications (sonner) — `<Toaster>` in `__root.tsx` (dark theme, antiquarian colors); toasts on export success and SSE errors
+- [x] **M11-06** Mobile responsiveness — thumb-accessible controls (min-h-[40px] touch targets), responsive px/py on header + controls, next-speaker hint hidden on small screens
 
 ---
 

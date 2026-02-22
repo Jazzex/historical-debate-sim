@@ -1,8 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
-import { Copy, Check, Download, ChevronRight, ScrollText, Columns2, Loader2, AlertCircle } from 'lucide-react'
+import { Copy, Check, Download, ChevronRight, ScrollText, Columns2, Loader2, AlertCircle, Send, RefreshCw } from 'lucide-react'
+import { toast } from 'sonner'
+import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { useDebateTurn } from '@/lib/hooks/useDebateTurn'
+import { exportDebateMarkdown, downloadMarkdown } from '@/lib/export'
 import type { CharacterProfile } from '@/types/character'
 import type { Debate, DebateTurn, DebateFormat, TurnRole } from '@/types/debate'
 
@@ -75,38 +78,14 @@ function computeNextTurn(
   }
 }
 
-function exportTranscript(
+function handleExport(
   debate: Debate,
   turns: DebateTurn[],
   characters: Map<string, CharacterProfile>,
 ) {
-  const format = debate.format as DebateFormat
-  const lines = [
-    `# ${debate.title}`,
-    ``,
-    `**Topic:** ${debate.topic}`,
-    `**Format:** ${FORMAT_LABELS[format] ?? format}`,
-    `**Date:** ${new Date(debate.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`,
-    ``,
-    `---`,
-    ``,
-    ...turns.map((turn) => {
-      const char = characters.get(turn.characterId ?? '')
-      const name = char?.name ?? (turn.characterId ? turn.characterId : 'You')
-      const role = ROLE_LABELS[turn.role as TurnRole] ?? turn.role
-      return `## ${name} — ${role}\n\n${turn.content}\n`
-    }),
-  ]
-
-  const blob = new Blob([lines.join('\n')], { type: 'text/markdown' })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = `grand-council-${debate.id.slice(0, 8)}.md`
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  URL.revokeObjectURL(url)
+  const markdown = exportDebateMarkdown(debate, turns, characters)
+  downloadMarkdown(markdown, `grand-council-${debate.id.slice(0, 8)}.md`)
+  toast.success('Transcript exported')
 }
 
 // ─── MonogramCircle ───────────────────────────────────────────────────────────
@@ -483,7 +462,7 @@ function DebateHeader({
   return (
     <div className="flex-none border-b border-[#1a1510] bg-[#0e0c09]">
       {/* Top bar */}
-      <div className="flex items-center gap-4 px-6 py-3">
+      <div className="flex items-center gap-2 sm:gap-4 px-4 sm:px-6 py-3">
         <a
           href="/characters"
           className="text-[#4a4030] hover:text-[#9e8e72] transition-colors flex-shrink-0"
@@ -555,8 +534,12 @@ function DebateControls({
   nextTurnInfo,
   streaming,
   error,
+  userTurnError,
   debateComplete,
+  waitingForUser,
   onNextTurn,
+  onRetry,
+  onSubmitUserTurn,
 }: {
   debate: Debate
   turns: DebateTurn[]
@@ -564,32 +547,137 @@ function DebateControls({
   nextTurnInfo: { characterId: string; role: TurnRole; turnNumber: number } | null
   streaming: boolean
   error: string | null
+  userTurnError: string | null
   debateComplete: boolean
+  waitingForUser: boolean
   onNextTurn: () => void
+  onRetry: () => void
+  onSubmitUserTurn: (text: string) => Promise<void>
 }) {
+  const [userInput, setUserInput] = useState('')
+  const [submitting, setSubmitting] = useState(false)
   const nextChar = nextTurnInfo ? characters.get(nextTurnInfo.characterId) : null
+
+  async function handleSubmit() {
+    if (!userInput.trim() || submitting) return
+    setSubmitting(true)
+    try {
+      await onSubmitUserTurn(userInput.trim())
+      setUserInput('')
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <div className="flex-none border-t border-[#1a1510] bg-[#0e0c09]">
-      {/* Error banner */}
+      {/* Error banners */}
       {error && (
         <div className="flex items-center gap-2.5 px-6 py-2.5 bg-red-950/30 border-b border-red-900/20">
           <AlertCircle className="w-3.5 h-3.5 text-red-400/70 flex-shrink-0" />
-          <p className="text-red-400/70" style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px' }}>
+          <p className="flex-1 text-red-400/70" style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px' }}>
             {error}
+          </p>
+          <button
+            onClick={onRetry}
+            className="flex items-center gap-1 text-red-400/60 hover:text-red-300/80 transition-colors flex-shrink-0"
+            style={{ fontFamily: '"EB Garamond", serif', fontSize: '12px', letterSpacing: '0.08em' }}
+          >
+            <RefreshCw className="w-3 h-3" />
+            Retry
+          </button>
+        </div>
+      )}
+      {userTurnError && (
+        <div className="flex items-center gap-2.5 px-6 py-2.5 bg-red-950/30 border-b border-red-900/20">
+          <AlertCircle className="w-3.5 h-3.5 text-red-400/70 flex-shrink-0" />
+          <p className="text-red-400/70" style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px' }}>
+            {userTurnError}
           </p>
         </div>
       )}
 
-      <div className="flex items-center gap-4 px-6 py-4">
-        {/* Next speaker hint */}
-        <div className="flex-1 min-w-0">
+      {/* User input area */}
+      {waitingForUser && !debateComplete && (
+        <div className="px-4 sm:px-6 pt-4 pb-2 space-y-3 border-b border-[#1a1510]">
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-full border border-[#2a2018] bg-[#151210] flex items-center justify-center flex-shrink-0">
+              <span
+                className="text-[#9e8e72]"
+                style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: '10px' }}
+              >
+                You
+              </span>
+            </div>
+            <span
+              className="text-[#5a5040] tracking-[0.18em] uppercase"
+              style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
+            >
+              Your Response
+            </span>
+          </div>
+          <textarea
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) handleSubmit()
+            }}
+            placeholder="State your position…"
+            rows={3}
+            className={cn(
+              'w-full bg-[#0a0806] border border-[#241c12] rounded-sm resize-none outline-none',
+              'text-[#f0e8d8] placeholder:text-[#3a3020]',
+              'px-4 py-3 transition-colors duration-200',
+              'focus:border-[#c9a458]/30',
+            )}
+            style={{ fontFamily: '"EB Garamond", serif', fontSize: '15px', lineHeight: 1.65 }}
+          />
+          <div className="flex items-center justify-between pb-1">
+            <span
+              className="text-[#2a2018]"
+              style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}
+            >
+              ⌘↵ to submit
+            </span>
+            <button
+              onClick={handleSubmit}
+              disabled={!userInput.trim() || submitting}
+              className={cn(
+                'flex items-center gap-1.5 px-4 min-h-[40px] rounded-sm border transition-all duration-200',
+                'tracking-[0.12em] uppercase',
+                userInput.trim() && !submitting
+                  ? 'bg-[#c9a458] border-[#c9a458] text-[#0c0a08] font-semibold hover:bg-[#d4b46a] hover:shadow-[0_0_16px_rgba(201,164,88,0.2)]'
+                  : 'border-[#1e1810] text-[#2a2018] cursor-not-allowed',
+              )}
+              style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 600, fontSize: '12px' }}
+            >
+              {submitting ? (
+                <Loader2 className="w-3 h-3 animate-spin" />
+              ) : (
+                <Send className="w-3 h-3" />
+              )}
+              Submit
+            </button>
+          </div>
+        </div>
+      )}
+
+      <div className="flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4">
+        {/* Next speaker hint — hidden on mobile when action buttons need space */}
+        <div className="flex-1 min-w-0 hidden sm:block">
           {debateComplete ? (
             <p
               className="text-[#5a5040] italic"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '14px' }}
             >
               The debate has concluded.
+            </p>
+          ) : waitingForUser ? (
+            <p
+              className="text-[#7a6e5c] italic"
+              style={{ fontFamily: '"EB Garamond", serif', fontSize: '14px' }}
+            >
+              The floor is yours.
             </p>
           ) : nextChar ? (
             <div className="flex items-center gap-2.5">
@@ -612,13 +700,16 @@ function DebateControls({
           ) : null}
         </div>
 
+        {/* On mobile: spacer so actions stay right-aligned */}
+        <div className="flex-1 sm:hidden" />
+
         {/* Secondary actions */}
         <div className="flex items-center gap-2">
           <button
-            onClick={() => exportTranscript(debate, turns, characters)}
+            onClick={() => handleExport(debate, turns, characters)}
             disabled={turns.length === 0}
             className={cn(
-              'flex items-center gap-1.5 px-3 py-1.5 border border-[#241c12] rounded-sm transition-all duration-150',
+              'flex items-center gap-1.5 px-3 min-h-[40px] sm:min-h-0 sm:py-1.5 border border-[#241c12] rounded-sm transition-all duration-150',
               turns.length > 0
                 ? 'text-[#7a6e5c] hover:border-[#c9a458]/25 hover:text-[#9e8e72]'
                 : 'text-[#2a2018] cursor-not-allowed',
@@ -626,7 +717,7 @@ function DebateControls({
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px', letterSpacing: '0.1em' }}
             title="Export transcript as Markdown"
           >
-            <Download className="w-3 h-3" />
+            <Download className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Export</span>
           </button>
         </div>
@@ -635,18 +726,18 @@ function DebateControls({
         {debateComplete ? (
           <a
             href="/debate/new"
-            className="flex items-center gap-1.5 px-5 py-2.5 bg-[#c9a458] hover:bg-[#d4b46a] text-[#0c0a08] rounded-sm transition-all duration-200 hover:shadow-[0_0_20px_rgba(201,164,88,0.2)]"
+            className="flex items-center gap-1.5 px-4 sm:px-5 min-h-[40px] sm:min-h-0 sm:py-2.5 bg-[#c9a458] hover:bg-[#d4b46a] text-[#0c0a08] rounded-sm transition-all duration-200 hover:shadow-[0_0_20px_rgba(201,164,88,0.2)]"
             style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 700, fontSize: '12px', letterSpacing: '0.15em' }}
           >
             New Debate
             <ChevronRight className="w-3.5 h-3.5" />
           </a>
-        ) : (
+        ) : waitingForUser ? null : (
           <button
             onClick={onNextTurn}
             disabled={streaming}
             className={cn(
-              'flex items-center gap-1.5 px-5 py-2.5 rounded-sm border transition-all duration-200',
+              'flex items-center gap-1.5 px-4 sm:px-5 min-h-[40px] sm:min-h-0 sm:py-2.5 rounded-sm border transition-all duration-200',
               'tracking-[0.12em] uppercase',
               streaming
                 ? 'bg-[#1a1408] border-[#c9a458]/20 text-[#c9a458]/40 cursor-not-allowed'
@@ -657,7 +748,7 @@ function DebateControls({
             {streaming ? (
               <>
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                Speaking…
+                <span className="hidden sm:inline">Speaking…</span>
               </>
             ) : (
               <>
@@ -686,7 +777,14 @@ function DebateStage({
   const [turns, setTurns] = useState<DebateTurn[]>(initialTurns)
   const [view, setView] = useState<'transcript' | 'podium'>('transcript')
   const [currentSpeakerId, setCurrentSpeakerId] = useState<string | null>(null)
+  const [waitingForUser, setWaitingForUser] = useState(false)
+  const [userTurnError, setUserTurnError] = useState<string | null>(null)
   const { streaming, streamText, error, startTurn } = useDebateTurn()
+
+  // Toast on SSE error
+  useEffect(() => {
+    if (error) toast.error(error)
+  }, [error])
 
   const debate = initialDebate
   const format = debate.format as DebateFormat
@@ -706,15 +804,21 @@ function DebateStage({
 
   const totalTurns = TURN_SEQUENCES[format].length * participantIds.length
 
+  // Only AI turns count toward turn scheduling (user turns are interleaved separately)
+  const aiTurnsCount = useMemo(
+    () => turns.filter((t) => t.characterId !== null).length,
+    [turns],
+  )
+
   const nextTurnInfo = useMemo(
-    () => computeNextTurn(format, participantIds, turns.length),
-    [format, participantIds, turns.length],
+    () => computeNextTurn(format, participantIds, aiTurnsCount),
+    [format, participantIds, aiTurnsCount],
   )
 
   const debateComplete = nextTurnInfo === null
 
   const handleNextTurn = useCallback(async () => {
-    if (!nextTurnInfo || streaming) return
+    if (!nextTurnInfo || streaming || waitingForUser) return
     const { characterId, role, turnNumber } = nextTurnInfo
     setCurrentSpeakerId(characterId)
     await startTurn(debate.id, characterId, (fullText) => {
@@ -730,9 +834,61 @@ function DebateStage({
           createdAt: new Date().toISOString(),
         },
       ])
+      // After AI turn completes, prompt user to respond if participating
+      if (debate.userParticipating) {
+        setWaitingForUser(true)
+      }
     })
     setCurrentSpeakerId(null)
-  }, [nextTurnInfo, streaming, startTurn, debate.id])
+  }, [nextTurnInfo, streaming, waitingForUser, startTurn, debate.id, debate.userParticipating])
+
+  const handleSubmitUserTurn = useCallback(async (text: string) => {
+    if (!text.trim() || !nextTurnInfo || streaming) return
+    setUserTurnError(null)
+
+    // Capture AI turn to trigger after user submits
+    const aiTurn = nextTurnInfo
+
+    try {
+      const res = await fetch(`/api/debates/${debate.id}/turns`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: text }),
+      })
+      if (!res.ok) {
+        const err = (await res.json()) as { error?: string }
+        throw new Error(err.error ?? 'Failed to save your response')
+      }
+      const { turn } = (await res.json()) as { turn: DebateTurn }
+      setTurns((prev) => [...prev, turn])
+      setWaitingForUser(false)
+
+      // Auto-trigger the next AI character's turn (M9-03)
+      if (!debateComplete) {
+        setCurrentSpeakerId(aiTurn.characterId)
+        await startTurn(debate.id, aiTurn.characterId, (fullText) => {
+          setTurns((prev) => [
+            ...prev,
+            {
+              id: crypto.randomUUID(),
+              debateId: debate.id,
+              characterId: aiTurn.characterId,
+              role: aiTurn.role,
+              content: fullText,
+              turnNumber: aiTurn.turnNumber,
+              createdAt: new Date().toISOString(),
+            },
+          ])
+          if (debate.userParticipating) {
+            setWaitingForUser(true)
+          }
+        })
+        setCurrentSpeakerId(null)
+      }
+    } catch (err) {
+      setUserTurnError(err instanceof Error ? err.message : 'Failed to submit response')
+    }
+  }, [nextTurnInfo, streaming, debate.id, debate.userParticipating, debateComplete, startTurn])
 
   return (
     <div className="flex flex-col h-screen bg-[#0c0a08] overflow-hidden">
@@ -742,7 +898,7 @@ function DebateStage({
         debate={debate}
         participants={participants}
         totalTurns={totalTurns}
-        completedTurns={turns.length}
+        completedTurns={aiTurnsCount}
         view={view}
         onViewChange={setView}
       />
@@ -775,8 +931,12 @@ function DebateStage({
         nextTurnInfo={nextTurnInfo}
         streaming={streaming}
         error={error}
+        userTurnError={userTurnError}
         debateComplete={debateComplete}
+        waitingForUser={waitingForUser}
         onNextTurn={handleNextTurn}
+        onRetry={handleNextTurn}
+        onSubmitUserTurn={handleSubmitUserTurn}
       />
     </div>
   )
@@ -786,29 +946,29 @@ function DebateStage({
 
 function DebateStageSkeleton() {
   return (
-    <div className="flex flex-col h-screen bg-[#0c0a08] animate-pulse">
+    <div className="flex flex-col h-screen bg-[#0c0a08]">
       <div className="h-px bg-[#1e1810]" />
       <div className="border-b border-[#1a1510] bg-[#0e0c09] px-6 py-3 flex items-center gap-4">
-        <div className="h-3 bg-[#1e1810] rounded w-24" />
-        <div className="flex-1 h-4 bg-[#1e1810] rounded w-64" />
-        <div className="h-5 bg-[#1e1810] rounded w-16" />
+        <Skeleton className="h-3 w-24 bg-[#1e1810]" />
+        <Skeleton className="flex-1 h-4 bg-[#1e1810]" />
+        <Skeleton className="h-5 w-16 bg-[#1e1810]" />
       </div>
       <div className="flex-1 p-6 space-y-6 max-w-3xl mx-auto w-full">
         {[...Array(3)].map((_, i) => (
           <div key={i} className="flex gap-4">
-            <div className="w-9 h-9 rounded-full bg-[#1e1810] flex-shrink-0" />
+            <Skeleton className="w-9 h-9 rounded-full bg-[#1e1810] flex-shrink-0" />
             <div className="flex-1 space-y-2">
-              <div className="h-3 bg-[#1e1810] rounded w-32" />
-              <div className="h-3 bg-[#181410] rounded w-full" />
-              <div className="h-3 bg-[#181410] rounded w-5/6" />
-              <div className="h-3 bg-[#181410] rounded w-4/5" />
+              <Skeleton className="h-3 w-32 bg-[#1e1810]" />
+              <Skeleton className="h-3 w-full bg-[#181410]" />
+              <Skeleton className="h-3 w-5/6 bg-[#181410]" />
+              <Skeleton className="h-3 w-4/5 bg-[#181410]" />
             </div>
           </div>
         ))}
       </div>
       <div className="border-t border-[#1a1510] bg-[#0e0c09] px-6 py-4 flex items-center justify-between">
-        <div className="h-8 bg-[#1e1810] rounded w-32" />
-        <div className="h-9 bg-[#1e1810] rounded w-28" />
+        <Skeleton className="h-8 w-32 bg-[#1e1810]" />
+        <Skeleton className="h-9 w-28 bg-[#1e1810]" />
       </div>
     </div>
   )
