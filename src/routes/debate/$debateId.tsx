@@ -52,11 +52,11 @@ function getMonogram(name: string) {
 function getMonogramColors(id: string) {
   const hash = id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0)
   const palettes = [
-    { bg: 'oklch(0.20 0.04 38)', border: 'oklch(0.60 0.11 42)' },
-    { bg: 'oklch(0.20 0.04 55)', border: 'oklch(0.60 0.11 58)' },
-    { bg: 'oklch(0.20 0.03 30)', border: 'oklch(0.60 0.10 34)' },
-    { bg: 'oklch(0.20 0.05 45)', border: 'oklch(0.62 0.12 48)' },
-    { bg: 'oklch(0.20 0.04 25)', border: 'oklch(0.60 0.10 28)' },
+    { bg: 'oklch(0.30 0.04 38)', border: 'oklch(0.60 0.11 42)' },
+    { bg: 'oklch(0.30 0.04 55)', border: 'oklch(0.60 0.11 58)' },
+    { bg: 'oklch(0.30 0.03 30)', border: 'oklch(0.60 0.10 34)' },
+    { bg: 'oklch(0.30 0.05 45)', border: 'oklch(0.62 0.12 48)' },
+    { bg: 'oklch(0.30 0.04 25)', border: 'oklch(0.60 0.10 28)' },
   ]
   return palettes[hash % palettes.length]
 }
@@ -152,7 +152,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="opacity-0 group-hover/bubble:opacity-100 transition-opacity p-1 text-[#5a5040] hover:text-[#9e8e72]"
+      className="opacity-0 group-hover/bubble:opacity-100 transition-opacity p-1 text-[#8e7e66] hover:text-[#9e8e72]"
       title="Copy to clipboard"
     >
       {copied ? <Check className="w-3.5 h-3.5 text-[#c9a458]" /> : <Copy className="w-3.5 h-3.5" />}
@@ -179,13 +179,13 @@ function TurnBubble({
   const isUser = !turn.characterId
 
   return (
-    <div className="group/bubble flex gap-4 py-5 border-b border-[#141210] last:border-0">
+    <div className="group/bubble flex gap-4 py-5 border-b border-[#28201a] last:border-0">
       {/* Avatar column */}
       <div className="flex-shrink-0 pt-1">
         {character ? (
           <MonogramCircle id={character.id} name={character.name} size="md" active={streaming} />
         ) : (
-          <div className="w-9 h-9 rounded-full border border-[#2a2018] bg-[#151210] flex items-center justify-center">
+          <div className="w-9 h-9 rounded-full border border-[#46382a] bg-[#241e16] flex items-center justify-center">
             <span className="text-[#9e8e72]" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: '11px' }}>
               You
             </span>
@@ -210,7 +210,7 @@ function TurnBubble({
             {role}
           </span>
           <span
-            className="text-[#3a3020] ml-auto flex-shrink-0"
+            className="text-[#705e48] ml-auto flex-shrink-0"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}
           >
             #{turn.turnNumber}
@@ -262,7 +262,7 @@ function TranscriptView({
         {turns.length === 0 && !streaming && (
           <div className="text-center py-16">
             <p
-              className="text-[#4a4030]"
+              className="text-[#7c6c54]"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '16px', fontStyle: 'italic' }}
             >
               The chamber awaits. Press Next Turn to begin.
@@ -332,19 +332,19 @@ function PodiumCard({
     <div
       className={cn(
         'flex flex-col rounded border transition-all duration-500',
-        'bg-[#0e0c09]',
+        'bg-[#221c11]',
         isCurrentSpeaker
           ? 'border-[#c9a458]/50 shadow-[0_0_40px_rgba(201,164,88,0.08)]'
           : active
-            ? 'border-[#2a2018]'
-            : 'border-[#181410]',
+            ? 'border-[#46382a]'
+            : 'border-[#2c2418]',
       )}
     >
       {/* Podium header */}
       <div
         className={cn(
           'flex flex-col items-center gap-3 px-5 py-6 border-b transition-all duration-500',
-          isCurrentSpeaker ? 'border-[#c9a458]/20 bg-[#0f0c08]' : 'border-[#141210]',
+          isCurrentSpeaker ? 'border-[#c9a458]/20 bg-[#261e10]' : 'border-[#28201a]',
         )}
       >
         <MonogramCircle id={character.id} name={character.name} size="lg" active={isCurrentSpeaker} />
@@ -356,7 +356,7 @@ function PodiumCard({
             {character.name}
           </p>
           <p
-            className="text-[#5a5040] mt-0.5"
+            className="text-[#8e7e66] mt-0.5"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}
           >
             {character.era}
@@ -367,8 +367,8 @@ function PodiumCard({
             className={cn(
               'tracking-[0.18em] uppercase px-2.5 py-0.5 rounded-sm border',
               isCurrentSpeaker
-                ? 'text-[#c9a458]/80 border-[#c9a458]/25 bg-[#1a1408]'
-                : 'text-[#5a5040] border-[#1e1810]',
+                ? 'text-[#c9a458]/80 border-[#c9a458]/25 bg-[#2c2010]'
+                : 'text-[#8e7e66] border-[#352c1c]',
             )}
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '9px' }}
           >
@@ -383,7 +383,7 @@ function PodiumCard({
           <p
             className={cn(
               'leading-relaxed transition-colors',
-              isCurrentSpeaker ? 'text-[#c9b888]' : 'text-[#8a7a62]',
+              isCurrentSpeaker ? 'text-[#c9b888]' : 'text-[#b0a080]',
             )}
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '14px', lineHeight: 1.8 }}
           >
@@ -391,7 +391,7 @@ function PodiumCard({
           </p>
         ) : (
           <p
-            className="text-[#2a2018] italic text-center pt-6"
+            className="text-[#46382a] italic text-center pt-6"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px' }}
           >
             awaiting…
@@ -460,12 +460,12 @@ function DebateHeader({
   const format = debate.format as DebateFormat
 
   return (
-    <div className="flex-none border-b border-[#1a1510] bg-[#0e0c09]">
+    <div className="flex-none border-b border-[#30261a] bg-[#221c11]">
       {/* Top bar */}
       <div className="flex items-center gap-2 sm:gap-4 px-4 sm:px-6 py-3">
         <a
           href="/characters"
-          className="text-[#4a4030] hover:text-[#9e8e72] transition-colors flex-shrink-0"
+          className="text-[#7c6c54] hover:text-[#9e8e72] transition-colors flex-shrink-0"
           style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px', letterSpacing: '0.15em' }}
         >
           ◆ Grand Council
@@ -481,7 +481,7 @@ function DebateHeader({
         <div className="flex items-center gap-3 flex-shrink-0">
           {/* Format badge */}
           <span
-            className="px-2.5 py-0.5 border border-[#2a2018] text-[#c9a458]/60 rounded-sm tracking-[0.2em] uppercase hidden sm:block"
+            className="px-2.5 py-0.5 border border-[#46382a] text-[#c9a458]/60 rounded-sm tracking-[0.2em] uppercase hidden sm:block"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '9px' }}
           >
             {FORMAT_LABELS[format] ?? format}
@@ -494,7 +494,7 @@ function DebateHeader({
           </div>
           {/* Turn counter */}
           <span
-            className="text-[#5a5040] tabular-nums"
+            className="text-[#8e7e66] tabular-nums"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '12px' }}
           >
             {completedTurns}/{totalTurns}
@@ -511,8 +511,8 @@ function DebateHeader({
             className={cn(
               'flex items-center gap-1.5 px-3 py-1.5 rounded-sm transition-all duration-150 text-xs tracking-[0.12em] uppercase',
               view === v
-                ? 'bg-[#1a1408] border border-[#c9a458]/30 text-[#c9a458]/80'
-                : 'border border-transparent text-[#4a4030] hover:text-[#7a6e5c]',
+                ? 'bg-[#2c2010] border border-[#c9a458]/30 text-[#c9a458]/80'
+                : 'border border-transparent text-[#7c6c54] hover:text-[#a89880]',
             )}
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
           >
@@ -570,7 +570,7 @@ function DebateControls({
   }
 
   return (
-    <div className="flex-none border-t border-[#1a1510] bg-[#0e0c09]">
+    <div className="flex-none border-t border-[#30261a] bg-[#221c11]">
       {/* Error banners */}
       {error && (
         <div className="flex items-center gap-2.5 px-6 py-2.5 bg-red-950/30 border-b border-red-900/20">
@@ -599,9 +599,9 @@ function DebateControls({
 
       {/* User input area */}
       {waitingForUser && !debateComplete && (
-        <div className="px-4 sm:px-6 pt-4 pb-2 space-y-3 border-b border-[#1a1510]">
+        <div className="px-4 sm:px-6 pt-4 pb-2 space-y-3 border-b border-[#30261a]">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-full border border-[#2a2018] bg-[#151210] flex items-center justify-center flex-shrink-0">
+            <div className="w-7 h-7 rounded-full border border-[#46382a] bg-[#241e16] flex items-center justify-center flex-shrink-0">
               <span
                 className="text-[#9e8e72]"
                 style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: '10px' }}
@@ -610,7 +610,7 @@ function DebateControls({
               </span>
             </div>
             <span
-              className="text-[#5a5040] tracking-[0.18em] uppercase"
+              className="text-[#8e7e66] tracking-[0.18em] uppercase"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
             >
               Your Response
@@ -625,8 +625,8 @@ function DebateControls({
             placeholder="State your position…"
             rows={3}
             className={cn(
-              'w-full bg-[#0a0806] border border-[#241c12] rounded-sm resize-none outline-none',
-              'text-[#f0e8d8] placeholder:text-[#3a3020]',
+              'w-full bg-[#2c2418] border border-[#3e3020] rounded-sm resize-none outline-none',
+              'text-[#f0e8d8] placeholder:text-[#705e48]',
               'px-4 py-3 transition-colors duration-200',
               'focus:border-[#c9a458]/30',
             )}
@@ -634,7 +634,7 @@ function DebateControls({
           />
           <div className="flex items-center justify-between pb-1">
             <span
-              className="text-[#2a2018]"
+              className="text-[#46382a]"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}
             >
               ⌘↵ to submit
@@ -646,8 +646,8 @@ function DebateControls({
                 'flex items-center gap-1.5 px-4 min-h-[40px] rounded-sm border transition-all duration-200',
                 'tracking-[0.12em] uppercase',
                 userInput.trim() && !submitting
-                  ? 'bg-[#c9a458] border-[#c9a458] text-[#0c0a08] font-semibold hover:bg-[#d4b46a] hover:shadow-[0_0_16px_rgba(201,164,88,0.2)]'
-                  : 'border-[#1e1810] text-[#2a2018] cursor-not-allowed',
+                  ? 'bg-[#c9a458] border-[#c9a458] text-[#1c1710] font-semibold hover:bg-[#d4b46a] hover:shadow-[0_0_16px_rgba(201,164,88,0.2)]'
+                  : 'border-[#352c1c] text-[#46382a] cursor-not-allowed',
               )}
               style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 600, fontSize: '12px' }}
             >
@@ -667,14 +667,14 @@ function DebateControls({
         <div className="flex-1 min-w-0 hidden sm:block">
           {debateComplete ? (
             <p
-              className="text-[#5a5040] italic"
+              className="text-[#8e7e66] italic"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '14px' }}
             >
               The debate has concluded.
             </p>
           ) : waitingForUser ? (
             <p
-              className="text-[#7a6e5c] italic"
+              className="text-[#a89880] italic"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '14px' }}
             >
               The floor is yours.
@@ -684,13 +684,13 @@ function DebateControls({
               <MonogramCircle id={nextChar.id} name={nextChar.name} size="sm" />
               <div>
                 <p
-                  className="text-[#7a6e5c] leading-none"
+                  className="text-[#a89880] leading-none"
                   style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: '14px' }}
                 >
                   {nextChar.name}
                 </p>
                 <p
-                  className="text-[#4a4030] leading-none mt-0.5"
+                  className="text-[#7c6c54] leading-none mt-0.5"
                   style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px', letterSpacing: '0.12em' }}
                 >
                   {nextTurnInfo ? (ROLE_LABELS[nextTurnInfo.role] ?? nextTurnInfo.role) : ''}
@@ -709,10 +709,10 @@ function DebateControls({
             onClick={() => handleExport(debate, turns, characters)}
             disabled={turns.length === 0}
             className={cn(
-              'flex items-center gap-1.5 px-3 min-h-[40px] sm:min-h-0 sm:py-1.5 border border-[#241c12] rounded-sm transition-all duration-150',
+              'flex items-center gap-1.5 px-3 min-h-[40px] sm:min-h-0 sm:py-1.5 border border-[#3e3020] rounded-sm transition-all duration-150',
               turns.length > 0
-                ? 'text-[#7a6e5c] hover:border-[#c9a458]/25 hover:text-[#9e8e72]'
-                : 'text-[#2a2018] cursor-not-allowed',
+                ? 'text-[#a89880] hover:border-[#c9a458]/25 hover:text-[#9e8e72]'
+                : 'text-[#46382a] cursor-not-allowed',
             )}
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px', letterSpacing: '0.1em' }}
             title="Export transcript as Markdown"
@@ -726,7 +726,7 @@ function DebateControls({
         {debateComplete ? (
           <a
             href="/debate/new"
-            className="flex items-center gap-1.5 px-4 sm:px-5 min-h-[40px] sm:min-h-0 sm:py-2.5 bg-[#c9a458] hover:bg-[#d4b46a] text-[#0c0a08] rounded-sm transition-all duration-200 hover:shadow-[0_0_20px_rgba(201,164,88,0.2)]"
+            className="flex items-center gap-1.5 px-4 sm:px-5 min-h-[40px] sm:min-h-0 sm:py-2.5 bg-[#c9a458] hover:bg-[#d4b46a] text-[#1c1710] rounded-sm transition-all duration-200 hover:shadow-[0_0_20px_rgba(201,164,88,0.2)]"
             style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 700, fontSize: '12px', letterSpacing: '0.15em' }}
           >
             New Debate
@@ -740,8 +740,8 @@ function DebateControls({
               'flex items-center gap-1.5 px-4 sm:px-5 min-h-[40px] sm:min-h-0 sm:py-2.5 rounded-sm border transition-all duration-200',
               'tracking-[0.12em] uppercase',
               streaming
-                ? 'bg-[#1a1408] border-[#c9a458]/20 text-[#c9a458]/40 cursor-not-allowed'
-                : 'bg-[#c9a458] border-[#c9a458] text-[#0c0a08] font-semibold hover:bg-[#d4b46a] hover:shadow-[0_0_20px_rgba(201,164,88,0.2)]',
+                ? 'bg-[#2c2010] border-[#c9a458]/20 text-[#c9a458]/40 cursor-not-allowed'
+                : 'bg-[#c9a458] border-[#c9a458] text-[#1c1710] font-semibold hover:bg-[#d4b46a] hover:shadow-[0_0_20px_rgba(201,164,88,0.2)]',
             )}
             style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 600, fontSize: '12px' }}
           >
@@ -891,7 +891,7 @@ function DebateStage({
   }, [nextTurnInfo, streaming, debate.id, debate.userParticipating, debateComplete, startTurn])
 
   return (
-    <div className="flex flex-col h-screen bg-[#0c0a08] overflow-hidden">
+    <div className="flex flex-col h-screen bg-[#1c1710] overflow-hidden">
       <div className="h-px bg-gradient-to-r from-transparent via-[#c9a458]/15 to-transparent" />
 
       <DebateHeader
@@ -946,29 +946,29 @@ function DebateStage({
 
 function DebateStageSkeleton() {
   return (
-    <div className="flex flex-col h-screen bg-[#0c0a08]">
-      <div className="h-px bg-[#1e1810]" />
-      <div className="border-b border-[#1a1510] bg-[#0e0c09] px-6 py-3 flex items-center gap-4">
-        <Skeleton className="h-3 w-24 bg-[#1e1810]" />
-        <Skeleton className="flex-1 h-4 bg-[#1e1810]" />
-        <Skeleton className="h-5 w-16 bg-[#1e1810]" />
+    <div className="flex flex-col h-screen bg-[#1c1710]">
+      <div className="h-px bg-[#352c1c]" />
+      <div className="border-b border-[#30261a] bg-[#221c11] px-6 py-3 flex items-center gap-4">
+        <Skeleton className="h-3 w-24 bg-[#352c1c]" />
+        <Skeleton className="flex-1 h-4 bg-[#352c1c]" />
+        <Skeleton className="h-5 w-16 bg-[#352c1c]" />
       </div>
       <div className="flex-1 p-6 space-y-6 max-w-3xl mx-auto w-full">
         {[...Array(3)].map((_, i) => (
           <div key={i} className="flex gap-4">
-            <Skeleton className="w-9 h-9 rounded-full bg-[#1e1810] flex-shrink-0" />
+            <Skeleton className="w-9 h-9 rounded-full bg-[#352c1c] flex-shrink-0" />
             <div className="flex-1 space-y-2">
-              <Skeleton className="h-3 w-32 bg-[#1e1810]" />
-              <Skeleton className="h-3 w-full bg-[#181410]" />
-              <Skeleton className="h-3 w-5/6 bg-[#181410]" />
-              <Skeleton className="h-3 w-4/5 bg-[#181410]" />
+              <Skeleton className="h-3 w-32 bg-[#352c1c]" />
+              <Skeleton className="h-3 w-full bg-[#2c2418]" />
+              <Skeleton className="h-3 w-5/6 bg-[#2c2418]" />
+              <Skeleton className="h-3 w-4/5 bg-[#2c2418]" />
             </div>
           </div>
         ))}
       </div>
-      <div className="border-t border-[#1a1510] bg-[#0e0c09] px-6 py-4 flex items-center justify-between">
-        <Skeleton className="h-8 w-32 bg-[#1e1810]" />
-        <Skeleton className="h-9 w-28 bg-[#1e1810]" />
+      <div className="border-t border-[#30261a] bg-[#221c11] px-6 py-4 flex items-center justify-between">
+        <Skeleton className="h-8 w-32 bg-[#352c1c]" />
+        <Skeleton className="h-9 w-28 bg-[#352c1c]" />
       </div>
     </div>
   )
@@ -1019,7 +1019,7 @@ function DebateStageWrapper() {
 
   if (loadError || !debate) {
     return (
-      <div className="min-h-screen bg-[#0c0a08] flex items-center justify-center">
+      <div className="min-h-screen bg-[#1c1710] flex items-center justify-center">
         <div className="text-center space-y-3">
           <p
             className="text-[#9e8e72]"
@@ -1027,7 +1027,7 @@ function DebateStageWrapper() {
           >
             The debate cannot be found.
           </p>
-          <p className="text-[#5a5040]" style={{ fontFamily: '"EB Garamond", serif', fontSize: '14px' }}>
+          <p className="text-[#8e7e66]" style={{ fontFamily: '"EB Garamond", serif', fontSize: '14px' }}>
             {loadError}
           </p>
           <a

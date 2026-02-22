@@ -19,11 +19,11 @@ function getMonogram(name: string) {
 function getMonogramColors(id: string) {
   const hash = id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0)
   const palettes = [
-    { bg: 'oklch(0.20 0.04 38)', border: 'oklch(0.60 0.11 42)' },
-    { bg: 'oklch(0.20 0.04 55)', border: 'oklch(0.60 0.11 58)' },
-    { bg: 'oklch(0.20 0.03 30)', border: 'oklch(0.60 0.10 34)' },
-    { bg: 'oklch(0.20 0.05 45)', border: 'oklch(0.62 0.12 48)' },
-    { bg: 'oklch(0.20 0.04 25)', border: 'oklch(0.60 0.10 28)' },
+    { bg: 'oklch(0.30 0.04 38)', border: 'oklch(0.60 0.11 42)' },
+    { bg: 'oklch(0.30 0.04 55)', border: 'oklch(0.60 0.11 58)' },
+    { bg: 'oklch(0.30 0.03 30)', border: 'oklch(0.60 0.10 34)' },
+    { bg: 'oklch(0.30 0.05 45)', border: 'oklch(0.62 0.12 48)' },
+    { bg: 'oklch(0.30 0.04 25)', border: 'oklch(0.60 0.10 28)' },
   ]
   return palettes[hash % palettes.length]
 }
@@ -47,9 +47,9 @@ function FeaturedDebateCard({ debate }: { debate: FeaturedDebate }) {
       href={`/debate/new?${params}`}
       className={cn(
         'group relative flex flex-col gap-5 p-6 rounded border',
-        'bg-[#0f0d0a] border-[#241c12]',
+        'bg-[#231d12] border-[#3e3020]',
         'transition-all duration-300 ease-out',
-        'hover:border-[#c9a458]/40 hover:bg-[#131008]',
+        'hover:border-[#c9a458]/40 hover:bg-[#281f13]',
         'hover:shadow-[0_4px_40px_rgba(201,164,88,0.06)]',
       )}
     >
@@ -93,7 +93,7 @@ function FeaturedDebateCard({ debate }: { debate: FeaturedDebate }) {
             {nameA}
           </p>
           <p
-            className="text-[#5a5040] leading-tight"
+            className="text-[#8e7e66] leading-tight"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '12px', letterSpacing: '0.12em' }}
           >
             vs. {nameB}
@@ -102,7 +102,7 @@ function FeaturedDebateCard({ debate }: { debate: FeaturedDebate }) {
 
         {/* Format badge */}
         <span
-          className="ml-auto flex-shrink-0 px-2 py-0.5 border border-[#2a2018] text-[#5a5040] rounded-sm tracking-[0.18em] uppercase hidden sm:block"
+          className="ml-auto flex-shrink-0 px-2 py-0.5 border border-[#46382a] text-[#8e7e66] rounded-sm tracking-[0.18em] uppercase hidden sm:block"
           style={{ fontFamily: '"EB Garamond", serif', fontSize: '9px' }}
         >
           {debate.format === 'lincoln-douglas' ? 'L-D' : debate.format}
@@ -110,7 +110,7 @@ function FeaturedDebateCard({ debate }: { debate: FeaturedDebate }) {
       </div>
 
       {/* Topic */}
-      <div className="border-t border-[#1a1510] pt-4">
+      <div className="border-t border-[#30261a] pt-4">
         <p
           className="text-[#f0e8d8] leading-snug italic mb-2 transition-colors group-hover:text-[#e8d8b0]"
           style={{ fontFamily: '"EB Garamond", serif', fontSize: '15px', lineHeight: 1.55 }}
@@ -118,7 +118,7 @@ function FeaturedDebateCard({ debate }: { debate: FeaturedDebate }) {
           "{debate.topic}"
         </p>
         <p
-          className="text-[#6a5e48] leading-relaxed"
+          className="text-[#a09070] leading-relaxed"
           style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px', lineHeight: 1.6 }}
         >
           {debate.description}
@@ -128,7 +128,7 @@ function FeaturedDebateCard({ debate }: { debate: FeaturedDebate }) {
       {/* CTA */}
       <div className="flex items-center justify-end mt-auto">
         <span
-          className="text-[#4a4030] group-hover:text-[#c9a458]/70 transition-colors"
+          className="text-[#7c6c54] group-hover:text-[#c9a458]/70 transition-colors"
           style={{ fontFamily: '"EB Garamond", serif', fontSize: '12px', letterSpacing: '0.1em' }}
         >
           Start this debate →
@@ -142,12 +142,12 @@ function FeaturedDebateCard({ debate }: { debate: FeaturedDebate }) {
 
 function HomePage() {
   return (
-    <div className="min-h-screen bg-[#0c0a08]">
+    <div className="min-h-screen bg-[#1c1710]">
       {/* Top rule */}
       <div className="h-px bg-gradient-to-r from-transparent via-[#c9a458]/20 to-transparent" />
 
       {/* Nav */}
-      <nav className="flex items-center justify-between px-6 py-4 border-b border-[#1a1510]">
+      <nav className="flex items-center justify-between px-6 py-4 border-b border-[#30261a]">
         <div className="flex items-center gap-2">
           <span className="text-[#c9a458]/50 text-xs">◆</span>
           <span
@@ -160,7 +160,7 @@ function HomePage() {
         <div className="flex items-center gap-4">
           <Link
             to="/characters"
-            className="text-[#5a5040] hover:text-[#9e8e72] transition-colors"
+            className="text-[#8e7e66] hover:text-[#9e8e72] transition-colors"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px', letterSpacing: '0.08em' }}
           >
             The Summoned
@@ -224,7 +224,7 @@ function HomePage() {
             <Link
               to="/debate/new"
               className={cn(
-                'px-8 py-3.5 bg-[#c9a458] rounded-sm text-[#0c0a08]',
+                'px-8 py-3.5 bg-[#c9a458] rounded-sm text-[#1c1710]',
                 'hover:bg-[#d4b46a] transition-all duration-200',
                 'hover:shadow-[0_0_40px_rgba(201,164,88,0.25)]',
                 'tracking-[0.18em] uppercase',
@@ -236,7 +236,7 @@ function HomePage() {
             <Link
               to="/characters"
               className={cn(
-                'px-8 py-3.5 border border-[#2a2018] rounded-sm',
+                'px-8 py-3.5 border border-[#46382a] rounded-sm',
                 'text-[#9e8e72] hover:text-[#c9a458]/80 hover:border-[#c9a458]/30',
                 'transition-all duration-200',
                 'tracking-[0.18em] uppercase',
@@ -248,7 +248,7 @@ function HomePage() {
           </div>
 
           {/* Stat strip */}
-          <div className="flex items-center justify-center gap-8 mt-12 pt-10 border-t border-[#1a1510]">
+          <div className="flex items-center justify-center gap-8 mt-12 pt-10 border-t border-[#30261a]">
             {[
               { value: '34', label: 'Historical Figures' },
               { value: '4', label: 'Debate Formats' },
@@ -262,7 +262,7 @@ function HomePage() {
                   {value}
                 </p>
                 <p
-                  className="text-[#4a4030] tracking-[0.2em] uppercase"
+                  className="text-[#7c6c54] tracking-[0.2em] uppercase"
                   style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
                 >
                   {label}
@@ -275,14 +275,14 @@ function HomePage() {
 
       {/* Section divider */}
       <div className="flex items-center gap-4 px-6 max-w-7xl mx-auto mb-10">
-        <div className="flex-1 h-px bg-[#1e1810]" />
+        <div className="flex-1 h-px bg-[#352c1c]" />
         <p
           className="text-[#c9a458]/40 tracking-[0.4em] uppercase flex-shrink-0"
           style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
         >
           Featured Debates
         </p>
-        <div className="flex-1 h-px bg-[#1e1810]" />
+        <div className="flex-1 h-px bg-[#352c1c]" />
       </div>
 
       {/* Featured debates grid */}
@@ -296,7 +296,7 @@ function HomePage() {
         {/* Browse CTA */}
         <div className="text-center mt-14">
           <p
-            className="text-[#5a5040] mb-4"
+            className="text-[#8e7e66] mb-4"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '15px' }}
           >
             Or build your own from 34 historical minds across philosophy, theology, science, and politics.
@@ -322,7 +322,7 @@ function HomePage() {
       {/* Footer */}
       <footer className="px-6 py-8 text-center">
         <p
-          className="text-[#2a2018]"
+          className="text-[#46382a]"
           style={{ fontFamily: '"EB Garamond", serif', fontSize: '12px', letterSpacing: '0.08em' }}
         >
           Grand Council — Historical Debate Simulator

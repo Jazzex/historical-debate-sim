@@ -83,11 +83,11 @@ function getMonogram(name: string) {
 function getMonogramColors(id: string) {
   const hash = id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0)
   const palettes = [
-    { bg: 'oklch(0.20 0.04 38)', border: 'oklch(0.60 0.11 42)' },
-    { bg: 'oklch(0.20 0.04 55)', border: 'oklch(0.60 0.11 58)' },
-    { bg: 'oklch(0.20 0.03 30)', border: 'oklch(0.60 0.10 34)' },
-    { bg: 'oklch(0.20 0.05 45)', border: 'oklch(0.62 0.12 48)' },
-    { bg: 'oklch(0.20 0.04 25)', border: 'oklch(0.60 0.10 28)' },
+    { bg: 'oklch(0.30 0.04 38)', border: 'oklch(0.60 0.11 42)' },
+    { bg: 'oklch(0.30 0.04 55)', border: 'oklch(0.60 0.11 58)' },
+    { bg: 'oklch(0.30 0.03 30)', border: 'oklch(0.60 0.10 34)' },
+    { bg: 'oklch(0.30 0.05 45)', border: 'oklch(0.62 0.12 48)' },
+    { bg: 'oklch(0.30 0.04 25)', border: 'oklch(0.60 0.10 28)' },
   ]
   return palettes[hash % palettes.length]
 }
@@ -129,7 +129,7 @@ function StepIndicator({ current }: { current: number }) {
               <div
                 className={cn(
                   'h-px w-8 sm:w-12 transition-colors duration-500',
-                  done ? 'bg-[#c9a458]/40' : 'bg-[#1e1810]',
+                  done ? 'bg-[#c9a458]/40' : 'bg-[#352c1c]',
                 )}
               />
             )}
@@ -139,14 +139,14 @@ function StepIndicator({ current }: { current: number }) {
                   'w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300',
                   done && 'bg-[#c9a458]/15 border-[#c9a458]/50',
                   active && 'border-[#c9a458] shadow-[0_0_14px_rgba(201,164,88,0.18)]',
-                  !done && !active && 'border-[#1e1810]',
+                  !done && !active && 'border-[#352c1c]',
                 )}
               >
                 {done ? (
                   <Check className="w-3 h-3 text-[#c9a458]" />
                 ) : (
                   <span
-                    className={cn('transition-colors', active ? 'text-[#c9a458]' : 'text-[#3a3020]')}
+                    className={cn('transition-colors', active ? 'text-[#c9a458]' : 'text-[#705e48]')}
                     style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 500, fontSize: '12px' }}
                   >
                     {step.num}
@@ -156,7 +156,7 @@ function StepIndicator({ current }: { current: number }) {
               <span
                 className={cn(
                   'text-center transition-colors leading-none',
-                  active ? 'text-[#c9a458]/70' : done ? 'text-[#4a4030]' : 'text-[#2a2018]',
+                  active ? 'text-[#c9a458]/70' : done ? 'text-[#7c6c54]' : 'text-[#46382a]',
                 )}
                 style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px', letterSpacing: '0.08em' }}
               >
@@ -187,17 +187,17 @@ function RosterStrip({
   return (
     <div
       className={cn(
-        'flex items-center gap-3 border border-[#241c12] rounded',
+        'flex items-center gap-3 border border-[#3e3020] rounded',
         compact ? 'px-4 py-2' : 'px-5 py-3',
       )}
     >
       <span
-        className="text-[#4a4030] tracking-[0.18em] uppercase flex-shrink-0"
+        className="text-[#7c6c54] tracking-[0.18em] uppercase flex-shrink-0"
         style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
       >
         Council
       </span>
-      <div className="w-px h-4 bg-[#1e1810]" />
+      <div className="w-px h-4 bg-[#352c1c]" />
 
       <div className="flex items-center gap-2.5 flex-1 flex-wrap">
         {selected.map((char) => (
@@ -213,7 +213,7 @@ function RosterStrip({
             )}
             <button
               onClick={() => onRemove(char.id)}
-              className="opacity-0 group-hover:opacity-100 transition-opacity text-[#4a4030] hover:text-[#9e8e72]"
+              className="opacity-0 group-hover:opacity-100 transition-opacity text-[#7c6c54] hover:text-[#9e8e72]"
               aria-label={`Remove ${char.name}`}
             >
               <X className="w-2.5 h-2.5" />
@@ -224,15 +224,15 @@ function RosterStrip({
         {Array.from({ length: empty }).map((_, i) => (
           <div
             key={`slot-${i}`}
-            className="w-7 h-7 rounded-full border border-dashed border-[#1e1810] flex items-center justify-center"
+            className="w-7 h-7 rounded-full border border-dashed border-[#352c1c] flex items-center justify-center"
           >
-            <span className="text-[#1e1810] text-[9px]">+</span>
+            <span className="text-[#352c1c] text-[9px]">+</span>
           </div>
         ))}
       </div>
 
       <span
-        className={cn('flex-shrink-0', selected.length >= 2 ? 'text-[#c9a458]/50' : 'text-[#4a4030]')}
+        className={cn('flex-shrink-0', selected.length >= 2 ? 'text-[#c9a458]/50' : 'text-[#7c6c54]')}
         style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}
       >
         {selected.length >= 2 ? `${selected.length}/4` : `Need ${2 - selected.length} more`}
@@ -280,7 +280,7 @@ function StepParticipants({
       {loading ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
           {Array.from({ length: 20 }).map((_, i) => (
-            <div key={i} className="h-[100px] bg-[#0f0d0a] border border-[#1a1510] rounded animate-pulse" />
+            <div key={i} className="h-[100px] bg-[#231d12] border border-[#30261a] rounded animate-pulse" />
           ))}
         </div>
       ) : (
@@ -297,15 +297,15 @@ function StepParticipants({
                   'relative text-left p-3 rounded border transition-all duration-200',
                   'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a458]/40',
                   sel
-                    ? 'bg-[#191208] border-[#c9a458]/55 shadow-[0_0_14px_rgba(201,164,88,0.07)]'
+                    ? 'bg-[#261e0e] border-[#c9a458]/55 shadow-[0_0_14px_rgba(201,164,88,0.07)]'
                     : maxed
-                      ? 'bg-[#0d0b08] border-[#181410] opacity-40 cursor-not-allowed'
-                      : 'bg-[#0f0d0a] border-[#241c12] hover:border-[#c9a458]/22 hover:bg-[#121008]',
+                      ? 'bg-[#1c1810] border-[#2c2418] opacity-40 cursor-not-allowed'
+                      : 'bg-[#231d12] border-[#3e3020] hover:border-[#c9a458]/22 hover:bg-[#22180e]',
                 )}
               >
                 {sel && (
                   <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-[#c9a458] flex items-center justify-center">
-                    <Check className="w-2.5 h-2.5 text-[#0c0a08]" />
+                    <Check className="w-2.5 h-2.5 text-[#1c1710]" />
                   </div>
                 )}
                 <MonogramCircle id={char.id} name={char.name} size="md" />
@@ -316,7 +316,7 @@ function StepParticipants({
                   {char.name}
                 </p>
                 <p
-                  className="text-[#5a5040] leading-none mt-0.5"
+                  className="text-[#8e7e66] leading-none mt-0.5"
                   style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
                 >
                   {char.era}
@@ -387,8 +387,8 @@ function StepMotion({
           placeholder="e.g. Does the end justify the means in matters of state?"
           rows={4}
           className={cn(
-            'w-full bg-[#0f0d0a] border border-[#241c12] rounded',
-            'text-[#f0e8d8] placeholder:text-[#3a3020]',
+            'w-full bg-[#231d12] border border-[#3e3020] rounded',
+            'text-[#f0e8d8] placeholder:text-[#705e48]',
             'px-5 py-4 resize-none outline-none',
             'focus:border-[#c9a458]/28 transition-colors duration-200',
           )}
@@ -407,7 +407,7 @@ function StepMotion({
             'tracking-[0.14em] uppercase',
             selectedIds.length >= 2 && !loadingSuggestions
               ? 'border-[#c9a458]/25 text-[#c9a458]/60 hover:border-[#c9a458]/50 hover:text-[#c9a458]'
-              : 'border-[#1e1810] text-[#2a2018] cursor-not-allowed',
+              : 'border-[#352c1c] text-[#46382a] cursor-not-allowed',
           )}
           style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}
         >
@@ -419,7 +419,7 @@ function StepMotion({
           {loadingSuggestions ? 'Consulting the oracle…' : 'Suggest from characters'}
         </button>
         {selectedIds.length < 2 && (
-          <span className="text-[#3a3020]" style={{ fontFamily: '"EB Garamond", serif', fontSize: '12px' }}>
+          <span className="text-[#705e48]" style={{ fontFamily: '"EB Garamond", serif', fontSize: '12px' }}>
             Select participants first
           </span>
         )}
@@ -429,7 +429,7 @@ function StepMotion({
       {suggestedTopics.length > 0 && (
         <div className="space-y-2">
           <p
-            className="text-[#4a4030] tracking-[0.2em] uppercase"
+            className="text-[#7c6c54] tracking-[0.2em] uppercase"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
           >
             Suggested motions
@@ -442,8 +442,8 @@ function StepMotion({
                 className={cn(
                   'w-full text-left px-4 py-3 rounded border transition-all duration-150',
                   topic === t
-                    ? 'bg-[#191208] border-[#c9a458]/50 text-[#e8c97a]'
-                    : 'bg-[#0f0d0a] border-[#241c12] text-[#9e8e72] hover:border-[#c9a458]/22 hover:text-[#c9a458]/70',
+                    ? 'bg-[#261e0e] border-[#c9a458]/50 text-[#e8c97a]'
+                    : 'bg-[#231d12] border-[#3e3020] text-[#9e8e72] hover:border-[#c9a458]/22 hover:text-[#c9a458]/70',
                 )}
                 style={{ fontFamily: '"EB Garamond", serif', fontSize: '15px', lineHeight: 1.55 }}
               >
@@ -504,8 +504,8 @@ function StepFormat({
                 'text-left p-5 rounded border transition-all duration-200',
                 'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a458]/40',
                 active
-                  ? 'bg-[#191208] border-[#c9a458]/55 shadow-[0_0_20px_rgba(201,164,88,0.06)]'
-                  : 'bg-[#0f0d0a] border-[#241c12] hover:border-[#c9a458]/22 hover:bg-[#121008]',
+                  ? 'bg-[#261e0e] border-[#c9a458]/55 shadow-[0_0_20px_rgba(201,164,88,0.06)]'
+                  : 'bg-[#231d12] border-[#3e3020] hover:border-[#c9a458]/22 hover:bg-[#22180e]',
               )}
             >
               <div className="flex items-start justify-between mb-3">
@@ -517,23 +517,23 @@ function StepFormat({
                 </h3>
                 {active && (
                   <div className="w-4 h-4 rounded-full bg-[#c9a458] flex items-center justify-center flex-shrink-0 mt-1">
-                    <Check className="w-2.5 h-2.5 text-[#0c0a08]" />
+                    <Check className="w-2.5 h-2.5 text-[#1c1710]" />
                   </div>
                 )}
               </div>
               <p
-                className="text-[#7a6e5c] leading-relaxed mb-4"
+                className="text-[#a89880] leading-relaxed mb-4"
                 style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px', lineHeight: 1.65 }}
               >
                 {f.description}
               </p>
-              <div className="flex items-center gap-1.5 border-t border-[#1a1510] pt-3">
+              <div className="flex items-center gap-1.5 border-t border-[#30261a] pt-3">
                 {f.diagram.map((seg, i) => (
                   <span
                     key={i}
                     className={cn(
                       'transition-colors',
-                      i === 0 && active ? 'text-[#c9a458]/50' : 'text-[#3a3020]',
+                      i === 0 && active ? 'text-[#c9a458]/50' : 'text-[#705e48]',
                     )}
                     style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px', letterSpacing: '0.04em' }}
                   >
@@ -595,8 +595,8 @@ function StepOptions({
         className={cn(
           'w-full flex items-center justify-between p-5 rounded border text-left transition-all duration-200',
           userParticipating
-            ? 'bg-[#191208] border-[#c9a458]/55'
-            : 'bg-[#0f0d0a] border-[#241c12] hover:border-[#c9a458]/20',
+            ? 'bg-[#261e0e] border-[#c9a458]/55'
+            : 'bg-[#231d12] border-[#3e3020] hover:border-[#c9a458]/20',
         )}
       >
         <div>
@@ -607,7 +607,7 @@ function StepOptions({
             Join as Participant
           </p>
           <p
-            className="text-[#7a6e5c]"
+            className="text-[#a89880]"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px' }}
           >
             Submit arguments alongside the historical figures, entering the debate yourself.
@@ -617,13 +617,13 @@ function StepOptions({
         <div
           className={cn(
             'relative w-10 h-[22px] rounded-full border transition-all duration-300 flex-shrink-0 ml-6',
-            userParticipating ? 'bg-[#c9a458] border-[#c9a458]' : 'bg-[#161210] border-[#2a2018]',
+            userParticipating ? 'bg-[#c9a458] border-[#c9a458]' : 'bg-[#161210] border-[#46382a]',
           )}
         >
           <div
             className={cn(
               'absolute top-[3px] w-4 h-4 rounded-full transition-all duration-300',
-              userParticipating ? 'left-[22px] bg-[#0c0a08]' : 'left-[3px] bg-[#4a4030]',
+              userParticipating ? 'left-[22px] bg-[#1c1710]' : 'left-[3px] bg-[#7c6c54]',
             )}
           />
         </div>
@@ -633,12 +633,12 @@ function StepOptions({
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <p
-            className="text-[#4a4030] tracking-[0.2em] uppercase"
+            className="text-[#7c6c54] tracking-[0.2em] uppercase"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
           >
             Response Length
           </p>
-          <div className="flex-1 h-px bg-[#1a1510]" />
+          <div className="flex-1 h-px bg-[#30261a]" />
         </div>
         <div className="grid grid-cols-3 gap-2">
           {RESPONSE_LENGTHS.map((opt) => {
@@ -650,8 +650,8 @@ function StepOptions({
                 className={cn(
                   'p-4 rounded border text-center transition-all duration-200',
                   active
-                    ? 'bg-[#191208] border-[#c9a458]/55'
-                    : 'bg-[#0f0d0a] border-[#241c12] hover:border-[#c9a458]/20',
+                    ? 'bg-[#261e0e] border-[#c9a458]/55'
+                    : 'bg-[#231d12] border-[#3e3020] hover:border-[#c9a458]/20',
                 )}
               >
                 <p
@@ -661,7 +661,7 @@ function StepOptions({
                   {opt.label}
                 </p>
                 <p
-                  className="text-[#4a4030]"
+                  className="text-[#7c6c54]"
                   style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}
                 >
                   {opt.desc}
@@ -670,7 +670,7 @@ function StepOptions({
             )
           })}
         </div>
-        <p className="text-[#2a2018]" style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}>
+        <p className="text-[#46382a]" style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}>
           * Response length configuration is reserved for a future release.
         </p>
       </div>
@@ -721,11 +721,11 @@ function StepConvene({
       </div>
 
       {/* Summary */}
-      <div className="border border-[#2a2018] rounded overflow-hidden">
+      <div className="border border-[#46382a] rounded overflow-hidden">
         {/* Motion */}
-        <div className="px-6 py-5 border-b border-[#1a1510]">
+        <div className="px-6 py-5 border-b border-[#30261a]">
           <p
-            className="text-[#4a4030] tracking-[0.2em] uppercase mb-2"
+            className="text-[#7c6c54] tracking-[0.2em] uppercase mb-2"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
           >
             The Motion
@@ -739,9 +739,9 @@ function StepConvene({
         </div>
 
         {/* Participants */}
-        <div className="px-6 py-5 border-b border-[#1a1510]">
+        <div className="px-6 py-5 border-b border-[#30261a]">
           <p
-            className="text-[#4a4030] tracking-[0.2em] uppercase mb-3"
+            className="text-[#7c6c54] tracking-[0.2em] uppercase mb-3"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
           >
             The Council
@@ -758,7 +758,7 @@ function StepConvene({
                     {char.name}
                   </p>
                   <p
-                    className="text-[#5a5040]"
+                    className="text-[#8e7e66]"
                     style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px' }}
                   >
                     {char.era}
@@ -773,7 +773,7 @@ function StepConvene({
         <div className="px-6 py-5 grid grid-cols-2 gap-6">
           <div>
             <p
-              className="text-[#4a4030] tracking-[0.2em] uppercase mb-1.5"
+              className="text-[#7c6c54] tracking-[0.2em] uppercase mb-1.5"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
             >
               Format
@@ -787,7 +787,7 @@ function StepConvene({
           </div>
           <div>
             <p
-              className="text-[#4a4030] tracking-[0.2em] uppercase mb-1.5"
+              className="text-[#7c6c54] tracking-[0.2em] uppercase mb-1.5"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
             >
               Your Role
@@ -816,7 +816,7 @@ function StepConvene({
         onClick={onConvene}
         disabled={creating}
         className={cn(
-          'w-full py-4 rounded-sm text-[#0c0a08] tracking-[0.2em] uppercase',
+          'w-full py-4 rounded-sm text-[#1c1710] tracking-[0.2em] uppercase',
           'transition-all duration-200',
           creating
             ? 'bg-[#c9a458]/50 cursor-not-allowed'
@@ -930,11 +930,11 @@ function DebateSetup() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0c0a08]">
+    <div className="min-h-screen bg-[#1c1710]">
       <div className="h-px bg-gradient-to-r from-transparent via-[#c9a458]/20 to-transparent" />
 
       {/* Nav */}
-      <nav className="flex items-center justify-between px-6 py-4 border-b border-[#1a1510]">
+      <nav className="flex items-center justify-between px-6 py-4 border-b border-[#30261a]">
         <a
           href="/characters"
           className="flex items-center gap-2 text-[#9e8e72] hover:text-[#c9a458] transition-colors duration-200"
@@ -948,7 +948,7 @@ function DebateSetup() {
           </span>
         </a>
         <span
-          className="text-[#3a3020] tracking-[0.18em] uppercase"
+          className="text-[#705e48] tracking-[0.18em] uppercase"
           style={{ fontFamily: '"EB Garamond", serif', fontSize: '12px' }}
         >
           New Debate
@@ -1020,7 +1020,7 @@ function DebateSetup() {
           {step > 1 ? (
             <button
               onClick={() => setStep((s) => s - 1)}
-              className="text-[#7a6e5c] hover:text-[#9e8e72] transition-colors"
+              className="text-[#a89880] hover:text-[#9e8e72] transition-colors"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '15px' }}
             >
               ← {step === 5 ? 'Revise' : 'Back'}
@@ -1037,8 +1037,8 @@ function DebateSetup() {
                 'flex items-center gap-1.5 px-6 py-2.5 rounded-sm border transition-all duration-200',
                 'tracking-[0.14em] uppercase',
                 canAdvance()
-                  ? 'bg-[#c9a458] border-[#c9a458] text-[#0c0a08] font-semibold hover:bg-[#d4b46a] hover:shadow-[0_0_20px_rgba(201,164,88,0.18)]'
-                  : 'bg-transparent border-[#1e1810] text-[#2a2018] cursor-not-allowed',
+                  ? 'bg-[#c9a458] border-[#c9a458] text-[#1c1710] font-semibold hover:bg-[#d4b46a] hover:shadow-[0_0_20px_rgba(201,164,88,0.18)]'
+                  : 'bg-transparent border-[#352c1c] text-[#46382a] cursor-not-allowed',
               )}
               style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 600, fontSize: '13px' }}
             >

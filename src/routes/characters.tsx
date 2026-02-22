@@ -45,11 +45,11 @@ function getMonogram(name: string) {
 function getMonogramColors(id: string) {
   const hash = id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0)
   const palettes = [
-    { bg: 'oklch(0.20 0.04 38)', border: 'oklch(0.60 0.11 42)' },
-    { bg: 'oklch(0.20 0.04 55)', border: 'oklch(0.60 0.11 58)' },
-    { bg: 'oklch(0.20 0.03 30)', border: 'oklch(0.60 0.10 34)' },
-    { bg: 'oklch(0.20 0.05 45)', border: 'oklch(0.62 0.12 48)' },
-    { bg: 'oklch(0.20 0.04 25)', border: 'oklch(0.60 0.10 28)' },
+    { bg: 'oklch(0.30 0.04 38)', border: 'oklch(0.60 0.11 42)' },
+    { bg: 'oklch(0.30 0.04 55)', border: 'oklch(0.60 0.11 58)' },
+    { bg: 'oklch(0.30 0.03 30)', border: 'oklch(0.60 0.10 34)' },
+    { bg: 'oklch(0.30 0.05 45)', border: 'oklch(0.62 0.12 48)' },
+    { bg: 'oklch(0.30 0.04 25)', border: 'oklch(0.60 0.10 28)' },
   ]
   return palettes[hash % palettes.length]
 }
@@ -70,9 +70,9 @@ function CharacterCard({ character, onClick }: CardProps) {
       onClick={onClick}
       className={cn(
         'group relative w-full text-left rounded overflow-hidden',
-        'bg-[#0f0d0a] border border-[#241c12]',
+        'bg-[#231d12] border border-[#3e3020]',
         'transition-all duration-300 ease-out',
-        'hover:border-[#c9a458]/50 hover:bg-[#131008]',
+        'hover:border-[#c9a458]/50 hover:bg-[#281f13]',
         'hover:shadow-[0_4px_32px_rgba(201,164,88,0.07)]',
         'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a458]/40',
       )}
@@ -133,7 +133,7 @@ function CharacterCard({ character, onClick }: CardProps) {
           {character.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="px-2 py-0.5 border border-[#2a2018] text-[#7a6e5c] rounded-sm"
+              className="px-2 py-0.5 border border-[#46382a] text-[#a89880] rounded-sm"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px', letterSpacing: '0.04em' }}
             >
               {tag}
@@ -141,7 +141,7 @@ function CharacterCard({ character, onClick }: CardProps) {
           ))}
           {character.tags.length > 3 && (
             <span
-              className="px-1 py-0.5 text-[#5a5040]"
+              className="px-1 py-0.5 text-[#8e7e66]"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
             >
               +{character.tags.length - 3}
@@ -151,9 +151,9 @@ function CharacterCard({ character, onClick }: CardProps) {
 
         {/* Quote */}
         {quote && (
-          <div className="border-t border-[#1e1810] pt-3 transition-colors duration-200 group-hover:border-[#2a2018]">
+          <div className="border-t border-[#352c1c] pt-3 transition-colors duration-200 group-hover:border-[#46382a]">
             <p
-              className="text-[#7a6e5c] leading-relaxed italic line-clamp-2"
+              className="text-[#a89880] leading-relaxed italic line-clamp-2"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '12px' }}
             >
               "{quote.length > 90 ? quote.slice(0, 87) + '…' : quote}"
@@ -174,19 +174,19 @@ function CharacterCard({ character, onClick }: CardProps) {
 
 function CardSkeleton() {
   return (
-    <div className="w-full bg-[#0f0d0a] border border-[#1e1810] rounded p-6 animate-pulse">
-      <div className="w-12 h-12 rounded-full bg-[#1e1810] mb-4" />
-      <div className="h-5 bg-[#1e1810] rounded w-3/4 mb-1.5" />
-      <div className="h-3 bg-[#1a1510] rounded w-1/2 mb-0.5" />
-      <div className="h-3 bg-[#1a1510] rounded w-2/5 mb-4" />
+    <div className="w-full bg-[#231d12] border border-[#352c1c] rounded p-6 animate-pulse">
+      <div className="w-12 h-12 rounded-full bg-[#352c1c] mb-4" />
+      <div className="h-5 bg-[#352c1c] rounded w-3/4 mb-1.5" />
+      <div className="h-3 bg-[#30261a] rounded w-1/2 mb-0.5" />
+      <div className="h-3 bg-[#30261a] rounded w-2/5 mb-4" />
       <div className="flex gap-1 mb-4">
-        <div className="h-4 bg-[#1a1510] rounded w-16" />
-        <div className="h-4 bg-[#1a1510] rounded w-12" />
-        <div className="h-4 bg-[#1a1510] rounded w-14" />
+        <div className="h-4 bg-[#30261a] rounded w-16" />
+        <div className="h-4 bg-[#30261a] rounded w-12" />
+        <div className="h-4 bg-[#30261a] rounded w-14" />
       </div>
-      <div className="border-t border-[#1a1510] pt-3 space-y-1.5">
-        <div className="h-3 bg-[#1a1510] rounded w-full" />
-        <div className="h-3 bg-[#1a1510] rounded w-4/5" />
+      <div className="border-t border-[#30261a] pt-3 space-y-1.5">
+        <div className="h-3 bg-[#30261a] rounded w-full" />
+        <div className="h-3 bg-[#30261a] rounded w-4/5" />
       </div>
     </div>
   )
@@ -205,7 +205,7 @@ function BioSection({ icon, label, children }: { icon: string; label: string; ch
         >
           {label}
         </span>
-        <div className="flex-1 h-px bg-[#1e1810]" />
+        <div className="flex-1 h-px bg-[#352c1c]" />
       </div>
       {children}
     </div>
@@ -215,9 +215,9 @@ function BioSection({ icon, label, children }: { icon: string; label: string; ch
 function Ornament() {
   return (
     <div className="flex items-center gap-3 py-0.5">
-      <div className="flex-1 h-px bg-[#1a1510]" />
-      <span className="text-[#2a2018] text-[8px]">◆</span>
-      <div className="flex-1 h-px bg-[#1a1510]" />
+      <div className="flex-1 h-px bg-[#30261a]" />
+      <span className="text-[#46382a] text-[8px]">◆</span>
+      <div className="flex-1 h-px bg-[#30261a]" />
     </div>
   )
 }
@@ -239,7 +239,7 @@ function CharacterBio({
   return (
     <Sheet open={open} onOpenChange={(v) => !v && onClose()}>
       <SheetContent
-        className="flex flex-col p-0 gap-0 border-l border-[#2a2018] bg-[#0c0a08] sm:max-w-lg"
+        className="flex flex-col p-0 gap-0 border-l border-[#46382a] bg-[#1c1710] sm:max-w-lg"
         side="right"
       >
         {/* Accessibility labels (visually hidden) */}
@@ -249,7 +249,7 @@ function CharacterBio({
         </SheetDescription>
 
         {/* Header */}
-        <div className="relative flex-none bg-[#0f0d0a] border-b border-[#2a2018] px-8 pt-12 pb-8 overflow-hidden">
+        <div className="relative flex-none bg-[#231d12] border-b border-[#46382a] px-8 pt-12 pb-8 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(201,164,88,0.04),transparent_60%)]" />
 
           {/* Monogram */}
@@ -292,7 +292,7 @@ function CharacterBio({
             {character.tags.slice(0, 5).map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-0.5 border border-[#2a2018] text-[#7a6e5c] rounded-sm"
+                className="px-2.5 py-0.5 border border-[#46382a] text-[#a89880] rounded-sm"
                 style={{ fontFamily: '"EB Garamond", serif', fontSize: '11px', letterSpacing: '0.04em' }}
               >
                 {tag}
@@ -380,7 +380,7 @@ function CharacterBio({
                     {character.suggestedTopics.map((topic, i) => (
                       <li
                         key={i}
-                        className="p-3 bg-[#0f0d0a] border border-[#1e1810] rounded text-[#a89878] leading-snug"
+                        className="p-3 bg-[#231d12] border border-[#352c1c] rounded text-[#a89878] leading-snug"
                         style={{ fontFamily: '"EB Garamond", serif', fontSize: '14px' }}
                       >
                         {topic}
@@ -397,10 +397,10 @@ function CharacterBio({
         </ScrollArea>
 
         {/* CTA */}
-        <div className="flex-none border-t border-[#2a2018] px-8 py-5 bg-[#0c0a08]">
+        <div className="flex-none border-t border-[#46382a] px-8 py-5 bg-[#1c1710]">
           <button
             className={cn(
-              'w-full py-3 rounded-sm text-[#0c0a08] text-sm font-semibold',
+              'w-full py-3 rounded-sm text-[#1c1710] text-sm font-semibold',
               'bg-[#c9a458] hover:bg-[#d4b46a]',
               'transition-all duration-200',
               'hover:shadow-[0_0_24px_rgba(201,164,88,0.25)]',
@@ -462,12 +462,12 @@ function CharacterBrowser() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0c0a08]">
+    <div className="min-h-screen bg-[#1c1710]">
       {/* Top rule */}
       <div className="h-px bg-gradient-to-r from-transparent via-[#c9a458]/20 to-transparent" />
 
       {/* Nav */}
-      <nav className="flex items-center justify-between px-6 py-4 border-b border-[#1a1510]">
+      <nav className="flex items-center justify-between px-6 py-4 border-b border-[#30261a]">
         <Link
           to="/"
           className="flex items-center gap-2 text-[#9e8e72] hover:text-[#c9a458] transition-colors duration-200"
@@ -530,24 +530,24 @@ function CharacterBrowser() {
 
       {/* Divider */}
       <div className="flex items-center gap-4 px-6 max-w-7xl mx-auto mb-9">
-        <div className="flex-1 h-px bg-[#1e1810]" />
-        <span className="text-[#2a2018] text-[9px] tracking-[0.4em]">◆</span>
-        <div className="flex-1 h-px bg-[#1e1810]" />
+        <div className="flex-1 h-px bg-[#352c1c]" />
+        <span className="text-[#46382a] text-[9px] tracking-[0.4em]">◆</span>
+        <div className="flex-1 h-px bg-[#352c1c]" />
       </div>
 
       {/* Controls */}
       <div className="px-6 max-w-7xl mx-auto mb-9 space-y-4">
         {/* Search */}
         <div className="relative max-w-sm">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#5a5040]" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#8e7e66]" />
           <input
             type="text"
             placeholder="Search name, era, or discipline…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className={cn(
-              'w-full bg-[#0f0d0a] border border-[#241c12] rounded-sm',
-              'text-[#f0e8d8] placeholder:text-[#5a5040]',
+              'w-full bg-[#231d12] border border-[#3e3020] rounded-sm',
+              'text-[#f0e8d8] placeholder:text-[#8e7e66]',
               'pl-10 pr-9 py-2.5 text-sm outline-none',
               'focus:border-[#c9a458]/35 transition-colors duration-200',
             )}
@@ -556,7 +556,7 @@ function CharacterBrowser() {
           {search && (
             <button
               onClick={() => setSearch('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#5a5040] hover:text-[#9e8e72] transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#8e7e66] hover:text-[#9e8e72] transition-colors"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -574,8 +574,8 @@ function CharacterBrowser() {
                   'px-3 py-1 border rounded-sm transition-all duration-200',
                   'tracking-[0.12em] uppercase',
                   selectedEra === era
-                    ? 'bg-[#c9a458] border-[#c9a458] text-[#0c0a08] font-semibold'
-                    : 'bg-transparent border-[#241c12] text-[#7a6e5c] hover:border-[#c9a458]/30 hover:text-[#c9a458]/60',
+                    ? 'bg-[#c9a458] border-[#c9a458] text-[#1c1710] font-semibold'
+                    : 'bg-transparent border-[#3e3020] text-[#a89880] hover:border-[#c9a458]/30 hover:text-[#c9a458]/60',
                 )}
                 style={{ fontFamily: '"EB Garamond", serif', fontSize: '10px' }}
               >
@@ -588,7 +588,7 @@ function CharacterBrowser() {
         {/* Count */}
         {!loading && !error && (
           <p
-            className="text-[#5a5040]"
+            className="text-[#8e7e66]"
             style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px' }}
           >
             {filtered.length} {filtered.length === 1 ? 'figure' : 'figures'}
@@ -609,7 +609,7 @@ function CharacterBrowser() {
               The archives are momentarily inaccessible.
             </p>
             <p
-              className="text-[#5a5040]"
+              className="text-[#8e7e66]"
               style={{ fontFamily: '"EB Garamond", serif', fontSize: '13px' }}
             >
               {error}
