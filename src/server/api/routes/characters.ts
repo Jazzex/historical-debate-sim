@@ -8,8 +8,13 @@ export const charactersRoutes = new Hono<HonoContext>()
 // GET /api/characters?tags=philosophy&era=Ancient+Greece
 charactersRoutes.get('/', async (c) => {
   const db = c.get('db')
-  const tagFilter = c.req.query('tags')?.toLowerCase()
-  const eraFilter = c.req.query('era')?.toLowerCase()
+  const tagRaw = c.req.query('tags')
+  const eraRaw = c.req.query('era')
+  if ((tagRaw && tagRaw.length > 100) || (eraRaw && eraRaw.length > 100)) {
+    return c.json({ error: 'filter parameter too long' }, 400)
+  }
+  const tagFilter = tagRaw?.toLowerCase()
+  const eraFilter = eraRaw?.toLowerCase()
 
   const rows = await db.select().from(characters)
 

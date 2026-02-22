@@ -1,5 +1,5 @@
 {
-  "name": "historical-debate-sim",
+  "name": "grand-council",
   "private": true,
   "type": "module",
   "imports": {
@@ -10,8 +10,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run --config vitest.config.ts",
+    "deploy": "~/.bun/bin/bun run build && ~/.bun/bin/bunx wrangler deploy",
     "seed:sql": "~/.bun/bin/bun run src/server/db/seed.ts > drizzle/seed.sql",
-    "seed": "~/.bun/bin/bun run seed:sql && ~/.bun/bin/bunx wrangler d1 execute historical-debate-sim --local --file=drizzle/seed.sql"
+    "seed": "~/.bun/bin/bun run seed:sql && ~/.bun/bin/bunx wrangler d1 execute grand-council --local --file=drizzle/seed.sql"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",

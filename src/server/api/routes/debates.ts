@@ -3,7 +3,7 @@ import { eq, asc, inArray } from 'drizzle-orm'
 import type { HonoContext } from '../index'
 import { characters, characterMemory, debates, debateTurns } from '../../db/schema'
 import { initWorkingMemory } from '../../ai/memory/working-memory'
-import { anthropic } from '../../ai/client'
+import { getAnthropicClient } from '../../ai/client'
 import type { DebateFormat } from '../../../types/debate'
 
 export const debatesRoutes = new Hono<HonoContext>()
@@ -23,9 +23,13 @@ debatesRoutes.post('/', async (c) => {
   const { topic, format, participantIds, userParticipating = false } = body
 
   if (!topic?.trim()) return c.json({ error: 'topic is required' }, 400)
+  if (topic.length > 300) return c.json({ error: 'topic must be 300 characters or fewer' }, 400)
   if (!VALID_FORMATS.includes(format)) return c.json({ error: `Invalid format: ${format}` }, 400)
   if (!Array.isArray(participantIds) || participantIds.length < 2 || participantIds.length > 4) {
     return c.json({ error: 'participantIds must be an array of 2–4 character IDs' }, 400)
+  }
+  if (participantIds.some((id) => typeof id !== 'string' || id.length > 100)) {
+    return c.json({ error: 'invalid character ID' }, 400)
   }
 
   // Verify all characters exist
@@ -100,6 +104,7 @@ debatesRoutes.post('/:id/turns', async (c) => {
   const body = await c.req.json<{ content: string }>()
 
   if (!body.content?.trim()) return c.json({ error: 'content is required' }, 400)
+  if (body.content.length > 2000) return c.json({ error: 'content must be 2000 characters or fewer' }, 400)
 
   const debateRows = await db.select().from(debates).where(eq(debates.id, debateId))
   if (!debateRows[0]) return c.json({ error: 'Debate not found' }, 404)
@@ -141,8 +146,11 @@ debatesRoutes.post('/topics', async (c) => {
   const db = c.get('db')
   const body = await c.req.json<{ characterIds: string[] }>()
 
-  if (!Array.isArray(body.characterIds) || body.characterIds.length < 2) {
-    return c.json({ error: 'characterIds must be an array of at least 2 IDs' }, 400)
+  if (!Array.isArray(body.characterIds) || body.characterIds.length < 2 || body.characterIds.length > 4) {
+    return c.json({ error: 'characterIds must be an array of 2–4 IDs' }, 400)
+  }
+  if (body.characterIds.some((id) => typeof id !== 'string' || id.length > 100)) {
+    return c.json({ error: 'invalid character ID' }, 400)
   }
 
   const charRows = await db
@@ -172,6 +180,7 @@ debatesRoutes.post('/topics', async (c) => {
 
   const names = charRows.map((ch) => ch.name).join(' and ')
 
+  const anthropic = getAnthropicClient(c.env.ANTHROPIC_API_KEY)
   const response = await anthropic.messages.create({
     model: 'claude-haiku-4-5-20251001',
     max_tokens: 512,

@@ -13,17 +13,24 @@
 ## 1. Create the D1 Database
 
 ```bash
-bunx wrangler d1 create historical-debate-sim
+bunx wrangler d1 create grand-council
 ```
 
 Copy the `database_id` from the output and paste it into `wrangler.jsonc`:
 
 ```jsonc
 {
+  "name": "grand-council",
+  "main": "dist/server/server.js",        // ← Workers entry (built output)
+  "compatibility_date": "2024-12-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist/client"          // ← static JS/CSS served at edge
+  },
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "historical-debate-sim",
+      "database_name": "grand-council",
       "database_id": "YOUR_DATABASE_ID_HERE"  // ← paste here
     }
   ]
@@ -44,10 +51,10 @@ Apply the Drizzle-generated SQL migrations:
 
 ```bash
 # Remote (production D1)
-bunx wrangler d1 migrations apply historical-debate-sim --remote
+bunx wrangler d1 migrations apply grand-council --remote
 
 # Local D1 simulator (for local dev with wrangler dev)
-bunx wrangler d1 migrations apply historical-debate-sim --local
+bunx wrangler d1 migrations apply grand-council --local
 ```
 
 Migrations live in `drizzle/`. Re-run `bunx drizzle-kit generate` after any schema changes.
@@ -67,10 +74,10 @@ To apply the seed:
 
 ```bash
 # Remote D1 (production)
-bunx wrangler d1 execute historical-debate-sim --remote --file=drizzle/seed.sql
+bunx wrangler d1 execute grand-council --remote --file=drizzle/seed.sql
 
 # Local D1 simulator
-bunx wrangler d1 execute historical-debate-sim --local --file=drizzle/seed.sql
+bunx wrangler d1 execute grand-council --local --file=drizzle/seed.sql
 
 # Or use the combined script (generates SQL + applies locally)
 bun run seed
@@ -79,7 +86,7 @@ bun run seed
 Verify the seed worked:
 
 ```bash
-bunx wrangler d1 execute historical-debate-sim --local \
+bunx wrangler d1 execute grand-council --local \
   --command="SELECT COUNT(*) as count FROM characters"
 # Expected: count = 34
 ```
@@ -103,7 +110,7 @@ bun run build
 bunx wrangler deploy
 ```
 
-Wrangler will output your deployment URL (e.g. `https://historical-debate-sim.YOUR_SUBDOMAIN.workers.dev`).
+Wrangler will output your deployment URL (e.g. `https://grand-council.YOUR_SUBDOMAIN.workers.dev`).
 
 ---
 

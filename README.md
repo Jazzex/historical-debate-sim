@@ -63,7 +63,7 @@ CLOUDFLARE_D1_TOKEN=...
 
 ```bash
 # Apply migrations to the local D1 simulator
-~/.bun/bin/bunx wrangler d1 migrations apply historical-debate-sim --local
+~/.bun/bin/bunx wrangler d1 migrations apply grand-council --local
 
 # Seed all 34 characters
 ~/.bun/bin/bun run seed

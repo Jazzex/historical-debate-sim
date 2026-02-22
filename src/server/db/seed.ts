@@ -1,6 +1,6 @@
 /**
  * Seed script — reads all JSON files from src/data/characters/ and inserts into D1.
- * Run via wrangler: bunx wrangler d1 execute historical-debate-sim --local --file=drizzle/seed.sql
+ * Run via wrangler: bunx wrangler d1 execute grand-council --local --file=drizzle/seed.sql
  * Or generate SQL: bun run seed:sql
  *
  * For local dev with wrangler: bun run seed

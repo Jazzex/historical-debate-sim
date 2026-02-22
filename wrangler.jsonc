@@ -1,12 +1,17 @@
 {
-  "name": "historical-debate-sim",
+  "name": "grand-council",
+  "main": "dist/server/server.js",
   "compatibility_date": "2024-12-01",
   "compatibility_flags": ["nodejs_compat"],
+  // Serve client-side JS/CSS/images directly from Cloudflare's edge (no Worker invocation)
+  "assets": {
+    "directory": "./dist/client"
+  },
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "historical-debate-sim",
-      "database_id": "YOUR_D1_DATABASE_ID"
+      "database_name": "grand-council",
+      "database_id": "89d3574d-6cbb-4496-a266-abd86d94f6c0"
     }
   ]
 }

@@ -7,6 +7,11 @@ import type { DebateFormat } from '@/types/debate'
 
 export const Route = createFileRoute('/debate/new')({
   component: DebateSetup,
+  validateSearch: (search: Record<string, unknown>) => ({
+    characters: typeof search.characters === 'string' ? search.characters : undefined,
+    topic: typeof search.topic === 'string' ? search.topic : undefined,
+    format: typeof search.format === 'string' ? (search.format as DebateFormat) : undefined,
+  }),
 })
 
 // ─── Constants ────────────────────────────────────────────────────────────────

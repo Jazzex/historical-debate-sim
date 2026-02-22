@@ -7,7 +7,7 @@ import { assembleCharacterContext } from '../../ai/memory/context-assembly'
 import { initWorkingMemory, updateWorkingMemory } from '../../ai/memory/working-memory'
 import { compressEpisodicMemory } from '../../ai/memory/episodic-compress'
 import { getTurnInstruction } from '../../../lib/debate-formats'
-import { anthropic } from '../../ai/client'
+import { getAnthropicClient } from '../../ai/client'
 import type { DebateFormat, DebateTurn, TurnRole } from '../../../types/debate'
 import type { WorkingMemory } from '../../../types/memory'
 
@@ -20,8 +20,15 @@ turnRoutes.get('/turn', async (c) => {
   const debateId = c.req.query('debateId')
   const characterId = c.req.query('characterId')
 
+  const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
   if (!debateId || !characterId) {
     return c.json({ error: 'Missing debateId or characterId query params' }, 400)
+  }
+  if (!UUID_RE.test(debateId)) {
+    return c.json({ error: 'Invalid debateId format' }, 400)
+  }
+  if (characterId.length > 100) {
+    return c.json({ error: 'Invalid characterId' }, 400)
   }
 
   // Validate debate exists
@@ -74,6 +81,8 @@ turnRoutes.get('/turn', async (c) => {
   const writer = writable.getWriter()
   const encoder = new TextEncoder()
 
+  const anthropic = getAnthropicClient(c.env.ANTHROPIC_API_KEY)
+
   const streamAndProcess = async () => {
     let fullText = ''
 
@@ -125,7 +134,7 @@ turnRoutes.get('/turn', async (c) => {
       ? (memoryRow.workingMemory as unknown as WorkingMemory)
       : initWorkingMemory(characterId, debateId, debate.topic)
 
-    const updatedMemory = await updateWorkingMemory(characterId, debateId, fullText, priorMemory)
+    const updatedMemory = await updateWorkingMemory(characterId, debateId, fullText, priorMemory, anthropic)
 
     const now = new Date().toISOString()
 
@@ -159,6 +168,7 @@ turnRoutes.get('/turn', async (c) => {
         characterId,
         charTurns as unknown as DebateTurn[],
         existingSummary,
+        anthropic,
       )
 
       await db

@@ -1,6 +1,5 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import type { WorkingMemory } from '../../../types/memory'
-import { anthropic } from '../client'
 
 interface MemoryUpdate {
   myMainThesis?: string
@@ -100,8 +99,9 @@ export async function updateWorkingMemory(
   _debateId: string,
   turnText: string,
   priorMemory: WorkingMemory,
+  client: Anthropic,
 ): Promise<WorkingMemory> {
-  const response = await anthropic.messages.create({
+  const response = await client.messages.create({
     model: 'claude-haiku-4-5-20251001',
     max_tokens: 1024,
     tool_choice: { type: 'tool', name: 'update_working_memory' },
